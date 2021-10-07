@@ -18,3 +18,10 @@ This project is of interest to me for many reasons :
 - Periods are an indicator of many aspects that involve our health
 - Making up our fasts is a common thing, the process should be made easier
 - I want to be able to  create something that I can use and benefit from
+
+
+##User Stories 
+- As a user, I want to be able to add when my period arrives to a calendar
+- As a user, I want to be able to view when I had previously gotten my period
+- As a user, I want to be able to track the number of days I need to make up my fast
+- As a user, I want to be able to input when I fasted a day  
