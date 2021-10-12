@@ -21,7 +21,7 @@ This project is of interest to me for many reasons :
 
 
 ##User Stories 
-- As a user, I want to be able to add when my period arrives to a calendar
+- As a user, I want to be able to add when my period arrives to the month
 - As a user, I want to be able to track my mood during that month 
 - As a user, I want to be able to track the number of days I need to make up my fast
 - As a user, I want to be able to input when I fasted a day  
