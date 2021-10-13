@@ -10,14 +10,18 @@ public class PeriodTrackerTest {
 
     @BeforeEach
    public void runBefore() {
-        testPeriodTracker = new PeriodTracker();
+        testPeriodTracker = new PeriodTracker(1,1,"happy");
     }
 
+    @Test
+    public void testConstructor() {
+        assertEquals("happy",testPeriodTracker.getMood());
+    }
     @Test
    public void testNoFast(){
         int initial = testPeriodTracker.getFast();
         int current = testPeriodTracker.fasting();
-        assertEquals(0,initial-current);
+        assertEquals(1,initial-current);
 
     }
 

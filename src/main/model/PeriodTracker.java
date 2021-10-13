@@ -8,17 +8,21 @@ import java.util.List;
 public class PeriodTracker {
     private int fast; // The current number of days left to fast
     private int period; // The number of days user has had period for
-    private List<String> mood; // The mood of the user
+    private String mood; // The mood of the user
 
 
     //EFFECTS: period tracker has
-    public PeriodTracker() {
-        mood = new ArrayList<>();
-        period = 0;
-        fast = 0;
+    public PeriodTracker(int daysOfPeriod, int daysOfFast, String getMood) {
+        mood = getMood;
+        if (period >= 0) {
+            period = daysOfPeriod;
+        } else {
+            period = 0;
+        }
+        fast = daysOfFast;
     }
 
-    public List<java.lang.String> getMood() {
+    public String getMood() {
         return mood;
     }
 

@@ -12,10 +12,7 @@ public class PeriodApp {
 
 
     public PeriodApp() {
-        period = new PeriodTracker();
         runPeriod();
-
-
     }
 
     private void runPeriod() {
