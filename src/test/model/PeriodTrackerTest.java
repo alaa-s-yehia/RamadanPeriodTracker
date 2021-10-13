@@ -17,8 +17,9 @@ public class PeriodTrackerTest {
     public void testConstructor() {
         assertEquals("happy",testPeriodTracker.getMood());
         assertEquals(1,testPeriodTracker.getFast());
-    }
+        assertTrue(testPeriodTracker.period == 1);
 
+    }
 
 
     @Test

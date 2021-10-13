@@ -7,10 +7,10 @@ import java.util.List;
 // and the mood of the user
 public class PeriodTracker {
     private int fast; // The current number of days left to fast
-    private int period; // The number of days user has had period for
+    protected int period; // The number of days user has had period for
     private String mood; // The mood of the user
 
-
+    //REQUIRES: days of period,days of
     //EFFECTS: period tracker has
     public PeriodTracker(int daysOfPeriod, int daysOfFast, String getMood) {
         mood = getMood;
@@ -41,7 +41,7 @@ public class PeriodTracker {
         }
     }
 
-
+//EFFECTS: returns the number of days left to fast
     public int getFast() {
         return fast;
     }

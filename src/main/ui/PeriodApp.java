@@ -12,12 +12,11 @@ public class PeriodApp {
 
 
     public PeriodApp() {
+        init();
         runPeriod();
     }
 
     private void runPeriod() {
-        input = new Scanner(System.in);
-        input.useDelimiter("\n");
         for (int i = 0; i < 30; i++) {
             System.out.println("Welcome to your PeriodTracker!");
             printPeriod();
@@ -26,6 +25,11 @@ public class PeriodApp {
         }
     }
 
+    private void init() {
+        period = new PeriodTracker(5,5,"happy");
+        input = new Scanner(System.in);
+        input.useDelimiter("\n");
+    }
 
     private void printPeriod() {
         String command = null;
