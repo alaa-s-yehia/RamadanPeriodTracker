@@ -5,14 +5,39 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PeriodTrackerTest {
+public class PeriodTrackerTest {
     private PeriodTracker testPeriodTracker;
 
     @BeforeEach
-    void runBefore() {testPeriodTracker = new PeriodTracker();}
+   public void runBefore() {
+        testPeriodTracker = new PeriodTracker();
+    }
 
     @Test
-    void test
+    public void testAddPeriod() {
+
+
+
+    }
+
+    @Test
+    public void testEndPeriod() {
+
+
+    }
+
+    @Test
+   public void testNoFast(){
+        int initial = testPeriodTracker.getFast();
+        int current = testPeriodTracker.fasting();
+        assertEquals(0,initial-current);
+
+    }
+
+    @Test
+    public void testYesFast(){
+
+    }
 
 
 }

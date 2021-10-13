@@ -14,17 +14,14 @@ public class PeriodTracker {
     //EFFECTS: period tracker has
     public PeriodTracker() {
         mood = new ArrayList<>();
-        this.period = period;
-        this.fast = fast;
+        period = 0;
+        fast = 0;
     }
 
     public List<java.lang.String> getMood() {
         return mood;
     }
 
-    public int getPeriod() {
-        return period;
-    }
 
     public void addPeriod() {
         if (period >= 0) {
@@ -32,7 +29,6 @@ public class PeriodTracker {
             fast++;
         }
     }
-
 
 
     public void endPeriod() {
@@ -46,10 +42,11 @@ public class PeriodTracker {
         return fast;
     }
 
-    public void getFasting() {
+    public int fasting() {
         if (fast >= 1) {
             fast -= 1;
         }
+        return fast;
     }
 
 }
