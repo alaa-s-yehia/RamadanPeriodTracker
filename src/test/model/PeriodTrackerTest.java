@@ -16,7 +16,19 @@ public class PeriodTrackerTest {
     @Test
     public void testConstructor() {
         assertEquals("happy",testPeriodTracker.getMood());
+        assertEquals(1,testPeriodTracker.getFast());
     }
+
+    @Test
+    public void testAddPeriod(){
+
+    }
+
+    @Test
+    public void testEndPeriod(){
+
+    }
+
     @Test
    public void testNoFast(){
         int initial = testPeriodTracker.getFast();
