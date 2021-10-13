@@ -14,19 +14,6 @@ public class PeriodTrackerTest {
     }
 
     @Test
-    public void testAddPeriod() {
-
-
-
-    }
-
-    @Test
-    public void testEndPeriod() {
-
-
-    }
-
-    @Test
    public void testNoFast(){
         int initial = testPeriodTracker.getFast();
         int current = testPeriodTracker.fasting();
@@ -34,10 +21,6 @@ public class PeriodTrackerTest {
 
     }
 
-    @Test
-    public void testYesFast(){
-
-    }
 
 
 }
