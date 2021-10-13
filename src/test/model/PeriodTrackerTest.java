@@ -19,15 +19,7 @@ public class PeriodTrackerTest {
         assertEquals(1,testPeriodTracker.getFast());
     }
 
-    @Test
-    public void testAddPeriod(){
 
-    }
-
-    @Test
-    public void testEndPeriod(){
-
-    }
 
     @Test
    public void testNoFast(){
