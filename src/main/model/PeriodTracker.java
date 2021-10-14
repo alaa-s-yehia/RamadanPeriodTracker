@@ -3,54 +3,53 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-//Represents a period tracker tracking days to fast,how long the period lasts
-// and the mood of the user
 public class PeriodTracker {
-    private int fast; // The current number of days left to fast
-    protected int period; // The number of days user has had period for
-    private String mood; // The mood of the user
 
-    //REQUIRES: days of period,days of
-    //EFFECTS: period tracker has
-    public PeriodTracker(int daysOfPeriod, int daysOfFast, String getMood) {
-        mood = getMood;
-        if (period >= 0) {
-            period = daysOfPeriod;
-        } else {
-            period = 0;
-        }
-        fast = daysOfFast;
+    protected List<PeriodDay> periodDays;
+    protected int fast = 0; // Number of days fasted so far
+    protected int period = 0; // Whether the user is on their period or not
+    protected int numMonths = 30; // Number of days in a month
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
-    public String getMood() {
-        return mood;
+    int fastsLeftAfter = 0; // Number of days left to fast
+
+    public PeriodTracker() {
+        this.periodDays = new ArrayList<>();
     }
 
 
-    public void addPeriod() {
-        if (period >= 0) {
+    public void addPeriodDay(PeriodDay day) {
+
+        if (day.getPeriod()) {
             period++;
+            fastsLeftAfter++;
+        }
+
+        if (day.getFast()) {
             fast++;
         }
+
+        periodDays.add(day);
     }
 
 
-    public void endPeriod() {
-        if (period > 0) {
-            period = 0;
-        }
-    }
-
-//EFFECTS: returns the number of days left to fast
+    //EFFECTS: returns the number of days fasted so far
     public int getFast() {
         return fast;
     }
 
-    public int fasting() {
-        if (fast >= 1) {
-            fast -= 1;
-        }
-        return fast;
+    //EFFECTS: returns the number of days left to fast
+    public int getDaysLeftToFast() {
+        return fastsLeftAfter;
     }
 
+
+    //EFFECTS: returns the number of periods had so far
+    public int getPeriod() {
+        return period;
+    }
 }

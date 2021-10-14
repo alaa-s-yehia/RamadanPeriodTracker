@@ -1,87 +1,126 @@
 package ui;
 
+import model.PeriodDay;
 import model.PeriodTracker;
 
 import java.util.Scanner;
 
 // Period Tracker application
 public class PeriodApp {
-    private PeriodTracker period;
-    private int fast;
-    private Scanner input;
-
+    protected PeriodDay period;
+    protected PeriodTracker periodTracker;
+    protected int fast;
+    protected Scanner input;
 
     public PeriodApp() {
         init();
         runPeriod();
     }
 
-    private void runPeriod() {
+    public void runPeriod() {
+        periodTracker = new PeriodTracker();
+        System.out.println("Welcome to your Ramadan PeriodTracker!");
         for (int i = 0; i < 30; i++) {
-            System.out.println("Welcome to your PeriodTracker!");
+            System.out.println("\n");
+            System.out.println("---------------------------------");
+            System.out.println("Welcome to day: " + (i + 1));
             printPeriod();
             printFast();
             printMood();
+            periodTracker.addPeriodDay(period);
         }
     }
 
-    private void init() {
-        period = new PeriodTracker(5,5,"happy");
+
+    public void init() {
+        period = new PeriodDay(false, false, "");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
-    private void printPeriod() {
-        String command = null;
+
+    public void printPeriod() {
+        String command = "";
+
         System.out.println("Are you on your Period? (yes/no)");
-        command = input.next();
-        command = command.toLowerCase();
-        if (command.equals("yes")) {
-            period.addPeriod();
-        } else if (command.equals("no")) {
-            period.endPeriod();
-        } else {
-            System.out.println("Not a valid Response!");
+
+        while (true) {
+            command = input.next();
+            command = command.toLowerCase();
+
+            if (command.equals("yes")) {
+                period.setPeriod(true);
+                break;
+
+            } else if (command.equals("no")) {
+                period.setPeriod(false);
+                break;
+
+            } else {
+                System.out.println("Not a valid Response!");
+            }
         }
 
     }
 
-    private void printMood() {
-        String command = null;
-        System.out.print("How are you feeling today? (happy/sad/angry)");
-        command = input.next();
-        command = command.toLowerCase();
-        if (command.equals("happy")) {
-            System.out.println("That's good to hear!");
-            period.getMood();
-        } else if (command.equals("sad")) {
-            System.out.println("I hope your day gets better!");
-            period.getMood();
-        } else if (command.equals("angry")) {
-            System.out.println("I hope your day gets better!");
-            period.getMood();
-        } else {
-            System.out.println("Selection not valid...");
+
+    public void printFast() {
+        String command = "";
+
+        System.out.println("Did you fast today? (yes/no)");
+
+        while (true) {
+            command = input.next();
+            command = command.toLowerCase();
+
+            if (command.equals("yes")) {
+                period.setFast(true);
+                System.out.println("You have " + periodTracker.getDaysLeftToFast() + " days left to fast.");
+                break;
+
+            } else if (command.equals("no")) {
+                System.out.println("That's alright!");
+                period.setFast(false);
+                System.out.println("You have " + periodTracker.getDaysLeftToFast() + " days left to fast.");
+                break;
+
+            } else {
+                System.out.println("Not a valid response");
+
+            }
 
         }
     }
 
-    private void printFast() {
-        String command = null;
-        System.out.print("Did you fast today? (yes/no)");
-        command = input.next();
-        command = command.toLowerCase();
-        if (command.equals("yes")) {
-            fast = period.fasting();
-            System.out.printf("You have ", fast, " days left to fast.");
-        } else if (command.equals("no")) {
-            System.out.println("That's alright!");
-            fast = period.getFast();
-            System.out.printf("You have ", fast, " days left to fast.");
-        } else {
-            System.out.println("Not a valid response");
 
+    public void printMood() {
+        String command = "";
+        System.out.println("How are you feeling today? (happy/sad/angry)");
+
+        while (true) {
+            command = input.next();
+            command = command.toLowerCase();
+            if (command.equals("happy")) {
+                System.out.println("That's good to hear!");
+                period.setMood("happy");
+                break;
+
+            } else if (command.equals("sad")) {
+                System.out.println("I hope your day gets better!");
+                period.setMood("sad");
+                break;
+
+            } else if (command.equals("angry")) {
+                System.out.println("I hope your day gets better!");
+                period.setMood("angry");
+                break;
+
+            } else {
+                System.out.println("Selection not valid...");
+
+            }
         }
     }
+
 
 }
