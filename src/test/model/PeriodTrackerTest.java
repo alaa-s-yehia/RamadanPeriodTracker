@@ -14,19 +14,16 @@ public class PeriodTrackerTest {
     }
 
     @Test
-    public void test1() {
-        /*
-         * Initialize records of vaccines recognized in Canada.
-         * Input values of the constructor consist of the codename, type, and manufacturer.
-         * No error handling is necessary for these input values.
-         * See Section 2.3 of the lab manual for the list of recognized vaccines.
-         */
+    public void testDays() {
+        //Creating different days with the different scenarios being fulfilled
+        //The scenarios being whether the user is on their period and whether they fasted
+
 
         PeriodTracker t1 = new PeriodTracker();
-        PeriodDay day1 = new PeriodDay(false,false,"happy");
-        PeriodDay day2 = new PeriodDay(true,false,"sad");
-        PeriodDay day3 = new PeriodDay(true,true,"angry");
-        PeriodDay day4 = new PeriodDay(false,true,"happy");
+        PeriodDay day1 = new PeriodDay(false, false, "happy");
+        PeriodDay day2 = new PeriodDay(true, false, "sad");
+        PeriodDay day3 = new PeriodDay(true, true, "angry");
+        PeriodDay day4 = new PeriodDay(false, true, "happy");
 
         t1.addPeriodDay(day1);
         t1.addPeriodDay(day2);

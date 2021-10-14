@@ -12,11 +12,14 @@ public class PeriodApp {
     protected int fast;
     protected Scanner input;
 
+    // EFFECTS:runs the Period Application
     public PeriodApp() {
         init();
         runPeriod();
     }
 
+    // MODIFIES: this
+    //EFFECTS:processes user input
     public void runPeriod() {
         periodTracker = new PeriodTracker();
         System.out.println("Welcome to your Ramadan PeriodTracker!");
@@ -31,14 +34,15 @@ public class PeriodApp {
         }
     }
 
-
+    // MODIFIES: this
+    //EFFECTS:Initializes period day
     public void init() {
         period = new PeriodDay(false, false, "");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
 
-
+    //EFFECTS:Prints summary of question in regard to user's period
     public void printPeriod() {
         String command = "";
 
@@ -63,7 +67,7 @@ public class PeriodApp {
 
     }
 
-
+    //EFFECTS: prints summary of question in regard to the user fasting
     public void printFast() {
         String command = "";
 
@@ -92,7 +96,7 @@ public class PeriodApp {
         }
     }
 
-
+    //EFFECTS:print summary of user's potential moods
     public void printMood() {
         String command = "";
         System.out.println("How are you feeling today? (happy/sad/angry)");
