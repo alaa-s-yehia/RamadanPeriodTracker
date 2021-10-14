@@ -54,6 +54,14 @@ public class PeriodTrackerTest {
         assertEquals(true, day4.getFast());
         assertEquals("happy", day4.getMood());
 
+        day1.setFast(false);
+        day1.setPeriod(false);
+        day1.setMood("sad");
+
+        assertEquals(false, day1.getPeriod());
+        assertEquals(false, day1.getFast());
+        assertEquals("sad", day1.getMood());
+
     }
 
 

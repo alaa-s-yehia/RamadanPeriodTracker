@@ -9,12 +9,6 @@ public class PeriodTracker {
     protected int fast = 0; // Number of days fasted so far
     protected int period = 0; // Whether the user is on their period or not
     protected int numMonths = 30; // Number of days in a month
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
-
     int fastsLeftAfter = 0; // Number of days left to fast
 
     public PeriodTracker() {
