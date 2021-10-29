@@ -2,44 +2,123 @@ package ui;
 
 import model.PeriodDay;
 import model.PeriodTracker;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
 import java.util.Scanner;
 
-// Period Tracker application
+// Represents the Period Tracker application
 public class PeriodApp {
     protected PeriodDay period;
     protected PeriodTracker periodTracker;
     protected int fast;
     protected Scanner input;
+    private static final String PERIOD_TRACK = "./data/periodTracker.json";
+    private JsonReader jsonReader;
+    private JsonWriter jsonWriter;
 
     // EFFECTS:runs the Period Application
-    public PeriodApp() {
+    public PeriodApp() throws FileNotFoundException {
         init();
+        input = new Scanner(System.in);
+        periodTracker = new PeriodTracker("My Tracker");
+        jsonReader = new JsonReader(PERIOD_TRACK);
+        jsonWriter = new JsonWriter(PERIOD_TRACK);
         runPeriod();
     }
 
     // MODIFIES: this
     //EFFECTS:processes user input
     public void runPeriod() {
-        periodTracker = new PeriodTracker();
+        boolean keepGoing = true;
+        String command = null;
+        input = new Scanner(System.in);
         System.out.println("Welcome to your Ramadan PeriodTracker!");
-        for (int i = 0; i < 30; i++) {
-            System.out.println("\n");
-            System.out.println("---------------------------------");
-            System.out.println("Welcome to day: " + (i + 1));
+
+        while (keepGoing) {
+            for (int i = 0; i < 30; i++) {
+                System.out.println("\n");
+                System.out.println("---------------------------------");
+                displayMenu();
+                System.out.println("Welcome to day: " + (i + 1));
+                command = input.next();
+                command = command.toLowerCase();
+                processCommand(command);
+
+            }
+        }
+    }
+
+    //EFFECTS: displays menu of options to user
+    private void displayMenu() {
+        System.out.println("\nSelect from:");
+        System.out.println("\ta -> log in period ");
+        System.out.println("\tr -> previous period ");
+        System.out.println("\ts -> save period tracker to file");
+        System.out.println("\tl -> load period tracker from file");
+        System.out.println("\tq -> quit");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: processes user command
+    private void processCommand(String command) {
+        if (command.equals("a")) {
             printPeriod();
             printFast();
             printMood();
-            periodTracker.addPeriodDay(period);
+        } else if (command.equals("s")) {
+            saveFile();
+        } else if (command.equals("l")) {
+            loadExistingFile();
+        } else if (command.equals("r")) {
+            previousPeriod();
+        } else if (command.equals("q")) {
+            System.exit(0);
+        } else {
+            System.out.println("Selection not valid...");
+        }
+
+    }
+
+    private void previousPeriod() {
+        List<PeriodDay> days = periodTracker.getPeriod();
+
+        for (PeriodDay p : days) {
+            System.out.println(p);
         }
     }
 
     // MODIFIES: this
     //EFFECTS:Initializes period day
     public void init() {
-        period = new PeriodDay(false, false, "");
+        period = new PeriodDay(false, false, "", "");
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+    }
+
+    public void loadExistingFile() {
+        try {
+            periodTracker = jsonReader.read();
+            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + PERIOD_TRACK);
+        }
+
+    }
+
+    public void saveFile() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(periodTracker);
+            jsonWriter.close();
+            System.out.println("saved" + periodTracker.getName() + "to" + PERIOD_TRACK);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + PERIOD_TRACK);
+
+        }
     }
 
     //EFFECTS:Prints summary of question in regard to user's period
@@ -92,6 +171,7 @@ public class PeriodApp {
                 System.out.println("Not a valid response");
 
             }
+            periodTracker.addPeriodDay(new PeriodDay(false,false,"mood","alaa"));
 
         }
     }

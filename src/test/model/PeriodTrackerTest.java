@@ -10,7 +10,7 @@ public class PeriodTrackerTest {
 
     @BeforeEach
     public void runBefore() {
-        testPeriodTracker = new PeriodTracker();
+        testPeriodTracker = new PeriodTracker("name");
     }
 
     @Test
@@ -19,11 +19,11 @@ public class PeriodTrackerTest {
         //The scenarios being whether the user is on their period and whether they fasted
 
 
-        PeriodTracker t1 = new PeriodTracker();
-        PeriodDay day1 = new PeriodDay(false, false, "happy");
-        PeriodDay day2 = new PeriodDay(true, false, "sad");
-        PeriodDay day3 = new PeriodDay(true, true, "angry");
-        PeriodDay day4 = new PeriodDay(false, true, "happy");
+        PeriodTracker t1 = new PeriodTracker("name");
+        PeriodDay day1 = new PeriodDay(false, false, "happy","lily");
+        PeriodDay day2 = new PeriodDay(true, false, "sad","lily");
+        PeriodDay day3 = new PeriodDay(true, true, "angry","lily");
+        PeriodDay day4 = new PeriodDay(false, true, "happy","lily");
 
         t1.addPeriodDay(day1);
         t1.addPeriodDay(day2);

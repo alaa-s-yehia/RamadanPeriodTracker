@@ -6,13 +6,14 @@ import org.json.JSONObject;
 import java.io.*;
 
 
-public class PeriodTrackerWriter {
+public class JsonWriter {
+    private static final int TAB = 3;
     private PrintWriter writer;
     private String destination;
 
 
     // EFFECTS: constructs writer to write to destination file
-    public PeriodTrackerWriter(String destination) {
+    public JsonWriter(String destination) {
         this.destination = destination;
     }
 
@@ -23,12 +24,12 @@ public class PeriodTrackerWriter {
         writer = new PrintWriter(new File(destination));
     }
 
-//    // MODIFIES: this
-//    // EFFECTS: writes JSON representation of PeriodTracker to file
-//    public void write(PeriodTracker pt) {
-//        JSONObject json = pt.toJson();
-//        saveToFile(json.toString(TAB));
-//    }
+    // MODIFIES: this
+    // EFFECTS: writes JSON representation of PeriodTracker to file
+    public void write(PeriodTracker pt) {
+        JSONObject json = pt.toJson();
+        saveToFile(json.toString(TAB));
+    }
 
     // MODIFIES: this
     // EFFECTS: closes writer

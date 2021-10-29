@@ -1,18 +1,23 @@
 package model;
 
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 //Represents a single day which represents whether the user got their period,
 // fasted and the mood of the user
-public class PeriodDay {
+public class PeriodDay implements Writable {
     protected boolean fast; // Whether the  user fasted or not
     protected boolean period; // Whether the user is on their period or not
     protected String mood; // The mood of the user
+    protected String name; // name of user
 
     //EFFECTS: period day is composed of fasting,period and mood
-    public PeriodDay(boolean period, boolean fasting, String mood) {
+    public PeriodDay(boolean period, boolean fasting, String mood,String name) {
         this.fast = fasting;
         this.period = period;
         this.mood = mood;
+        this.name = name;
     }
 
     //EFFECTS: returns true if user fasted
@@ -23,6 +28,10 @@ public class PeriodDay {
     //EFFECTS: returns true if user is on their period
     public boolean getPeriod() {
         return period;
+    }
+
+    public String getName() {
+        return name;
     }
 
     //EFFECTS:returns the mood of the user which can be "happy, Sad, angry"
@@ -44,6 +53,13 @@ public class PeriodDay {
     //EFFECTS:Updates the Mood of the User
     public void setMood(String mood) {
         this.mood = mood;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", name);
+        return json;
     }
 
 

@@ -1,6 +1,5 @@
 package persistence;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import model.PeriodDay;
 import model.PeriodTracker;
 import org.json.JSONArray;
@@ -12,15 +11,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class PeriodTrackerReader {
+import org.json.*;
+
+public class JsonReader {
     private String source;
 
     // EFFECTS: constructs reader to read from source file
-    public PeriodTrackerReader(String source) {
+    public JsonReader(String source) {
         this.source = source;
     }
 
-    // EFFECTS: reads workroom from file and returns it;
+    // EFFECTS: reads periodtracker from file and returns it;
     // throws IOException if an error occurs reading data from file
     public PeriodTracker read() throws IOException {
         String jsonData = readFile(source);
@@ -31,7 +32,7 @@ public class PeriodTrackerReader {
     // EFFECTS: parses workroom from JSON object and returns it
     private PeriodTracker parsePeriodTracker(JSONObject jsonObject) {
         String name = jsonObject.getString("name");
-        PeriodTracker pt = new PeriodTracker();
+        PeriodTracker pt = new PeriodTracker(name);
         addInfo(pt, jsonObject);
         return pt;
     }
@@ -47,33 +48,26 @@ public class PeriodTrackerReader {
         return contentBuilder.toString();
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
-    private PeriodTracker parseWorkRoom(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
-        PeriodTracker pt = new PeriodTracker();
-        addInfo(pt, jsonObject);
-        return pt;
-    }
 
     // MODIFIES: wr
     // EFFECTS: parses thingies from JSON object and adds them to workroom
     private void addInfo(PeriodTracker pt, JSONObject jsonObject) {
-        JSONArray jsonArray = jsonObject.getJSONArray("thingies");
+        JSONArray jsonArray = jsonObject.getJSONArray("days");
         for (Object json : jsonArray) {
-            JSONObject nextThingy = (JSONObject) json;
-            addSingleDayInfo(pt, nextThingy);
+            JSONObject nextDay = (JSONObject) json;
+            addSingleDayInfo(pt, nextDay);
         }
     }
 
     // MODIFIES: wr
     // EFFECTS: parses thingy from JSON object and adds it to workroom
     private void addSingleDayInfo(PeriodTracker pt, JSONObject jsonObject) {
+        String name = jsonObject.getString("name");
         Boolean period = jsonObject.getBoolean("period");
         Boolean fast = Boolean.valueOf(jsonObject.getBoolean("fast"));
         String mood = jsonObject.getString("mood");
-        PeriodDay day = new PeriodDay(period, fast,mood);
+        PeriodDay day = new PeriodDay(period, fast,mood,name);
         pt.addPeriodDay(day);
     }
-
 
 }
