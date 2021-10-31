@@ -1,4 +1,4 @@
-package model;
+package persistence;
 
 import model.PeriodTracker;
 import model.PeriodDay;

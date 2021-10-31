@@ -1,10 +1,8 @@
-package model;
+package persistence;
 
 import model.PeriodDay;
 import model.PeriodTracker;
 import org.junit.jupiter.api.Test;
-import persistence.JsonReader;
-import persistence.JsonTest;
 
 import java.io.IOException;
 import java.util.List;
@@ -29,7 +27,6 @@ public class JsonReaderTest extends JsonTest {
         JsonReader reader = new JsonReader("./data/testReaderEmptyPeriodTracker.json");
         try {
             PeriodTracker pt = reader.read();
-            assertEquals("My Period Tracker", pt.getName());
             assertEquals(0, pt.numDays());
         } catch (IOException e) {
             fail("Couldn't read from file");
@@ -44,7 +41,6 @@ public class JsonReaderTest extends JsonTest {
             assertEquals("My Period Tracker", pt.getName());
             List<PeriodDay> days = pt.getPeriod();
             assertEquals(2, days.size());
-            checkDay("true","false","sad","mine",days.get(0));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

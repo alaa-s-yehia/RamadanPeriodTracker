@@ -103,7 +103,7 @@ public class PeriodApp {
     public void loadExistingFile() {
         try {
             periodTracker = jsonReader.read();
-            System.out.println("Loaded " + periodTracker.getDaysLeftToFast() + " from " + PERIOD_TRACK);
+            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + PERIOD_TRACK);
         }
