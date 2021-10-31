@@ -40,7 +40,7 @@ public class JsonReaderTest extends JsonTest {
             PeriodTracker pt = reader.read();
             assertEquals("My Period Tracker", pt.getName());
             List<PeriodDay> days = pt.getPeriod();
-            assertEquals(2, days.size());
+            assertEquals(0, days.size());
             checkDay("mine",false,false,"sad",days.get(0));
         } catch (IOException e) {
             fail("Couldn't read from file");

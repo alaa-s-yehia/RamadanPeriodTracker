@@ -29,12 +29,12 @@ public class JsonWriterTest extends JsonTest {
     void testWriterEmptyPeriodTracker() {
         try {
             PeriodTracker pt = new PeriodTracker("My Period Tracker");
-            JsonWriter writer = new JsonWriter("./data/testWriterEmptyWorkroom.json");
+            JsonWriter writer = new JsonWriter("./data/testWriterEmptyPeriodTracker.json");
             writer.open();
             writer.write(pt);
             writer.close();
 
-            JsonReader reader = new JsonReader("./data/testWriterEmptyWorkroom.json");
+            JsonReader reader = new JsonReader("./data/testWriterEmptyPeriodTracker.json");
             pt = reader.read();
             assertEquals("My Period Tracker", pt.getName());
             assertEquals(0, pt.numDays());
