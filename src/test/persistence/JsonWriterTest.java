@@ -47,8 +47,8 @@ public class JsonWriterTest extends JsonTest {
     void testWriterGeneralPeriodTracker() {
         try {
             PeriodTracker pt = new PeriodTracker("My Period Tracker");
-            pt.addPeriodDay(new PeriodDay(false,true,"sad","alaa"));
-            pt.addPeriodDay(new PeriodDay(false,false,"angry","alaa"));
+            pt.addDay(new PeriodDay(false, true, "sad", "alaa"));
+            pt.addDay(new PeriodDay(false, false, "angry", "alaa"));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPeriodTracker.json");
             writer.open();
             writer.write(pt);
@@ -57,12 +57,12 @@ public class JsonWriterTest extends JsonTest {
             JsonReader reader = new JsonReader("./data/testWriterGeneralPeriodTracker.json");
             pt = reader.read();
             assertEquals("My Period Tracker", pt.getName());
-//            List<PeriodDay> days = pt.getPeriod();
-//            assertEquals(1, days.size());
-//            PeriodDay p = pt.getFast();
-//            checkDay("period",false,false,"sad", p);
-//
-
+            List<PeriodDay> days = pt.getPeriod();
+            assertEquals(2, days.size());
+            PeriodDay p = days.get(0);
+            checkDay("alaa", false, true, "sad", days.get(0));
+             p = days.get(1);
+            checkDay("alaa", false, false, "sad", days.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");

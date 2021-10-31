@@ -2,7 +2,7 @@ package persistence;
 
 import model.PeriodDay;
 import model.PeriodTracker;
-import org.json.JSONArray;
+
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -28,14 +28,6 @@ public class JsonReader {
         return parsePeriodTracker(jsonObject);
     }
 
-    // EFFECTS: parses workroom from JSON object and returns it
-    private PeriodTracker parsePeriodTracker(JSONObject jsonObject) {
-        String name = jsonObject.getString("name");
-        PeriodTracker pt = new PeriodTracker(name);
-        addInfo(pt, jsonObject);
-        return pt;
-    }
-
     // EFFECTS: reads source file as string and returns it
     private String readFile(String source) throws IOException {
         StringBuilder contentBuilder = new StringBuilder();
@@ -47,9 +39,17 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
+    // EFFECTS: parses periodTracker from JSON object and returns it
+    private PeriodTracker parsePeriodTracker(JSONObject jsonObject) {
+        String name = jsonObject.getString("name");
+        PeriodTracker pt = new PeriodTracker(name);
+        addInfo(pt, jsonObject);
+        return pt;
+    }
+
 
     // MODIFIES: wr
-    // EFFECTS: parses thingies from JSON object and adds them to workroom
+    // EFFECTS: parses thingies from JSON object and adds them to Period Tracker
     private void addInfo(PeriodTracker pt, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("days");
         for (Object json : jsonArray) {
@@ -59,13 +59,13 @@ public class JsonReader {
     }
 
     // MODIFIES: wr
-    // EFFECTS: parses thingy from JSON object and adds it to workroom
+    // EFFECTS: parses thingy from JSON object and adds it to PeriodTracker
     private void addSingleDayInfo(PeriodTracker pt, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
-        Boolean period = Boolean.valueOf(jsonObject.getBoolean("period"));
-        Boolean fast = Boolean.valueOf(jsonObject.getBoolean("fast"));
+        Boolean period = jsonObject.getBoolean("period");
+        Boolean fast = jsonObject.getBoolean("fast");
         String mood = jsonObject.getString("mood");
-        PeriodDay day = new PeriodDay(period, fast,mood,name);
+        PeriodDay day = new PeriodDay(period,fast,mood,name);
         pt.addDay(day);
     }
 

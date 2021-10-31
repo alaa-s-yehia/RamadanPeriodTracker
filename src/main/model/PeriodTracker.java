@@ -82,7 +82,7 @@ public class PeriodTracker implements Writable {
         return json;
     }
 
-    // EFFECTS: returns things in this workroom as a JSON array
+    // EFFECTS: returns days in this periodTracker as a JSON array
     private JSONArray periodDaysToJson() {
         JSONArray jsonArray = new JSONArray();
 
