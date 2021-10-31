@@ -42,7 +42,7 @@ public class JsonReaderTest extends JsonTest {
             List<PeriodDay> days = pt.getPeriod();
             assertEquals(2, pt.numDays());
             checkDay("alaa",false,true,"sad",days.get(0));
-            checkDay("alaa",false,false,"sad",days.get(1));
+            checkDay("alaa",false,false,"angry",days.get(1));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

@@ -62,7 +62,7 @@ public class JsonWriterTest extends JsonTest {
             PeriodDay p = days.get(0);
             checkDay("alaa", false, true, "sad", days.get(0));
              p = days.get(1);
-            checkDay("alaa", false, false, "sad", days.get(1));
+            checkDay("alaa", false, false, "angry", days.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");
