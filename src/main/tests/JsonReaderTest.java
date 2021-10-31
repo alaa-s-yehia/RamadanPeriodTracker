@@ -1,8 +1,10 @@
-package persistence;
+package tests;
 
 import model.PeriodDay;
 import model.PeriodTracker;
 import org.junit.jupiter.api.Test;
+import persistence.JsonReader;
+import persistence.JsonTest;
 
 import java.io.IOException;
 import java.util.List;
