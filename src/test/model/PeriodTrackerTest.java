@@ -33,7 +33,7 @@ public class PeriodTrackerTest {
 
         assertEquals(2, t1.getDaysLeftToFast());
         assertEquals(2, t1.getFast());
-        assertEquals(2, t1.getPeriod());
+
 
         assertEquals(false, day1.getPeriod());
         assertEquals(false, day1.getFast());

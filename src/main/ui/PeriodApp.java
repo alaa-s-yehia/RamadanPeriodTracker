@@ -47,6 +47,7 @@ public class PeriodApp {
                 command = input.next();
                 command = command.toLowerCase();
                 processCommand(command);
+                periodTracker.addPeriodDay(period);
 
             }
         }
@@ -102,7 +103,7 @@ public class PeriodApp {
     public void loadExistingFile() {
         try {
             periodTracker = jsonReader.read();
-            System.out.println("Loaded " + periodTracker.getFast() + " from " + PERIOD_TRACK);
+            System.out.println("Loaded " + periodTracker.getDaysLeftToFast() + " from " + PERIOD_TRACK);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + PERIOD_TRACK);
         }
@@ -115,7 +116,7 @@ public class PeriodApp {
             jsonWriter.open();
             jsonWriter.write(periodTracker);
             jsonWriter.close();
-            System.out.println("saved" + periodTracker.getFast() + "to" + PERIOD_TRACK);
+            System.out.println("saved" + periodTracker.getDaysLeftToFast() + "to" + PERIOD_TRACK);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 
@@ -175,6 +176,7 @@ public class PeriodApp {
             }
 
         }
+        periodTracker.getDaysLeftToFast();
         periodTracker.addDay(new PeriodDay(period.getPeriod(), period.getFast(), "mood", "user"));
 
     }
