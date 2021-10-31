@@ -62,7 +62,7 @@ public class JsonWriterTest extends JsonTest {
             assertEquals(2, days.size());
             PeriodDay p = days.get(0);
             checkDay("alaa", false, true, "sad", days.get(0));
-             p = days.get(1);
+            p = days.get(1);
             checkDay("alaa", false, false, "angry", days.get(1));
 
         } catch (IOException e) {

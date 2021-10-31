@@ -20,10 +20,10 @@ public class PeriodTrackerTest {
 
 
         PeriodTracker t1 = new PeriodTracker("name");
-        PeriodDay day1 = new PeriodDay(false, false, "happy","lily");
-        PeriodDay day2 = new PeriodDay(true, false, "sad","lily");
-        PeriodDay day3 = new PeriodDay(true, true, "angry","lily");
-        PeriodDay day4 = new PeriodDay(false, true, "happy","lily");
+        PeriodDay day1 = new PeriodDay(false, false, "happy", "lily");
+        PeriodDay day2 = new PeriodDay(true, false, "sad", "lily");
+        PeriodDay day3 = new PeriodDay(true, true, "angry", "lily");
+        PeriodDay day4 = new PeriodDay(false, true, "happy", "lily");
 
         t1.addPeriodDay(day1);
         t1.addPeriodDay(day2);
@@ -59,7 +59,7 @@ public class PeriodTrackerTest {
         assertEquals(false, day1.getFast());
         assertEquals("sad", day1.getMood());
 
-        assertEquals("false!",day1.toString());
+        assertEquals("false!", day1.toString());
 
     }
 

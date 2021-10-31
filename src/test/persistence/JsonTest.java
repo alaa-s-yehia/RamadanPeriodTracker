@@ -9,10 +9,10 @@ import static org.junit.jupiter.api.Assertions.*;
 // https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 
 public class JsonTest {
-    protected void checkDay(String name,Boolean period,Boolean fast,String mood, PeriodDay periodDay) {
-        assertEquals(name,periodDay.getName());
+    protected void checkDay(String name, Boolean period, Boolean fast, String mood, PeriodDay periodDay) {
+        assertEquals(name, periodDay.getName());
         assertEquals(period, periodDay.getPeriod());
-        assertEquals(fast,periodDay.getFast());
-        assertEquals(mood,periodDay.getMood());
+        assertEquals(fast, periodDay.getFast());
+        assertEquals(mood, periodDay.getMood());
     }
 }

@@ -83,6 +83,7 @@ public class PeriodApp {
         }
 
     }
+
     // EFFECTS: prints all the days fasted in periodTracker to the console
     private void printPreviousPeriod() {
         List<PeriodDay> days = periodTracker.getPeriod();

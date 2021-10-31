@@ -13,7 +13,7 @@ public class PeriodDay implements Writable {
     protected String name; // name of user
 
     //EFFECTS: period day is composed of fasting,period and mood
-    public PeriodDay(boolean period, boolean fasting, String mood,String name) {
+    public PeriodDay(boolean period, boolean fasting, String mood, String name) {
         this.fast = fasting;
         this.period = period;
         this.mood = mood;
@@ -65,9 +65,9 @@ public class PeriodDay implements Writable {
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
-        json.put("mood",mood);
-        json.put("period",period);
-        json.put("fast",fast);
+        json.put("mood", mood);
+        json.put("period", period);
+        json.put("fast", fast);
         return json;
     }
 
