@@ -24,7 +24,7 @@ public class JsonReaderTest extends JsonTest {
 
     @Test
     void testReaderEmptyPeriodTracker() {
-        JsonReader reader = new JsonReader("./data/testReaderEmptyPeriodTracker.json");
+        JsonReader reader = new JsonReader("./data/testWriterEmptyPeriodTracker.json");
         try {
             PeriodTracker pt = reader.read();
             assertEquals(0, pt.numDays());
@@ -35,12 +35,13 @@ public class JsonReaderTest extends JsonTest {
 
     @Test
     void testReaderGeneralPeriodTracker() {
-        JsonReader reader = new JsonReader("./data/testReaderGeneralPeriodTracker.json");
+        JsonReader reader = new JsonReader("./data/testWriterGeneralPeriodTracker.json");
         try {
             PeriodTracker pt = reader.read();
             assertEquals("My Period Tracker", pt.getName());
             List<PeriodDay> days = pt.getPeriod();
             assertEquals(2, days.size());
+            checkDay("mine",false,false,"sad",days.get(0));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
