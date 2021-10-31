@@ -3,15 +3,16 @@ package persistence;
 import model.PeriodTracker;
 import model.PeriodDay;
 import org.junit.jupiter.api.Test;
-import persistence.JsonReader;
-import persistence.JsonTest;
-import persistence.JsonWriter;
+
 
 import java.io.IOException;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//cite: this class is modeled after the JsonWriterTest class from
+//the JsonSterilizationDemo.Link:
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {

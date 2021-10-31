@@ -5,6 +5,9 @@ import org.json.JSONObject;
 
 import java.io.*;
 
+//cite: this class is modeled after the JsonWriter class from
+//the JsonSterilizationDemo.Link:
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
 
 public class JsonWriter {
     private static final int TAB = 3;

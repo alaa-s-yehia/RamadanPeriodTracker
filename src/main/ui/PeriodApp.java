@@ -83,7 +83,7 @@ public class PeriodApp {
         }
 
     }
-
+    // EFFECTS: prints all the days fasted in periodTracker to the console
     private void printPreviousPeriod() {
         List<PeriodDay> days = periodTracker.getPeriod();
 
@@ -100,6 +100,8 @@ public class PeriodApp {
         input.useDelimiter("\n");
     }
 
+    // MODIFIES: this
+    // EFFECTS: loads periodTracker from file
     public void loadExistingFile() {
         try {
             periodTracker = jsonReader.read();
@@ -110,7 +112,7 @@ public class PeriodApp {
 
     }
 
-
+    // EFFECTS: saves the periodTracker to file
     public void saveFile() {
         try {
             jsonWriter.open();

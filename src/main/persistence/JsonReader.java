@@ -12,6 +12,10 @@ import java.util.stream.Stream;
 
 import org.json.*;
 
+//cite: this class is modeled after the JsonReader class from
+//the JsonSterilizationDemo.Link:
+// https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo.git
+
 public class JsonReader {
     private String source;
 
@@ -20,7 +24,7 @@ public class JsonReader {
         this.source = source;
     }
 
-    // EFFECTS: reads periodtracker from file and returns it;
+    // EFFECTS: reads periodTracker from file and returns it;
     // throws IOException if an error occurs reading data from file
     public PeriodTracker read() throws IOException {
         String jsonData = readFile(source);
