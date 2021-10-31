@@ -59,8 +59,8 @@ public class JsonWriterTest extends JsonTest {
             assertEquals("My Period Tracker", pt.getName());
             List<PeriodDay> days = pt.getPeriod();
             assertEquals(3, days.size());
-//            checkDay("alaa",days.get(2));
-//            checkDay("alaa",days.get(3));
+            checkDay("alaa",days.get(2));
+            checkDay("alaa",days.get(3));
 
 
         } catch (IOException e) {

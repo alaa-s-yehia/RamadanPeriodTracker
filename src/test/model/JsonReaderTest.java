@@ -44,8 +44,7 @@ public class JsonReaderTest extends JsonTest {
             assertEquals("My Period Tracker", pt.getName());
             List<PeriodDay> days = pt.getPeriod();
             assertEquals(2, days.size());
-//            checkDay("alaa",P);
-//            checkDay();
+            checkDay("true","false","sad","mine",days.get(0));
         } catch (IOException e) {
             fail("Couldn't read from file");
         }

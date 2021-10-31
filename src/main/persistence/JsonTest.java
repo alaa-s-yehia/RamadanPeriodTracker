@@ -7,9 +7,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class JsonTest {
-    protected void checkDay(String name, PeriodDay periodDay, PeriodTracker periodTracker) {
+    protected void checkDay(String period, String fasting, String mood,String name, PeriodDay periodDay) {
         assertEquals(name,periodDay.getName());
-        assertEquals(periodDay,periodTracker.getFast());
-        assertEquals(periodDay,periodTracker.getPeriod());
+        assertEquals(period,periodDay.getPeriod());
+        assertEquals(fasting,periodDay.getFast());
+        assertEquals(mood,periodDay.getMood());
     }
 }
