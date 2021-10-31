@@ -3,7 +3,6 @@ package persistence;
 import model.PeriodDay;
 import model.PeriodTracker;
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -63,11 +62,11 @@ public class JsonReader {
     // EFFECTS: parses thingy from JSON object and adds it to workroom
     private void addSingleDayInfo(PeriodTracker pt, JSONObject jsonObject) {
         String name = jsonObject.getString("name");
-        Boolean period = jsonObject.getBoolean("period");
+        Boolean period = Boolean.valueOf(jsonObject.getBoolean("period"));
         Boolean fast = Boolean.valueOf(jsonObject.getBoolean("fast"));
         String mood = jsonObject.getString("mood");
         PeriodDay day = new PeriodDay(period, fast,mood,name);
-        pt.addPeriodDay(day);
+        pt.addDay(day);
     }
 
 }

@@ -22,11 +22,11 @@ public class PeriodApp {
 
     // EFFECTS:runs the Period Application
     public PeriodApp() throws FileNotFoundException {
-        init();
         input = new Scanner(System.in);
         periodTracker = new PeriodTracker("My Tracker");
-        jsonReader = new JsonReader(PERIOD_TRACK);
         jsonWriter = new JsonWriter(PERIOD_TRACK);
+        jsonReader = new JsonReader(PERIOD_TRACK);
+        init();
         runPeriod();
     }
 
@@ -74,7 +74,7 @@ public class PeriodApp {
         } else if (command.equals("l")) {
             loadExistingFile();
         } else if (command.equals("r")) {
-            previousPeriod();
+            printPreviousPeriod();
         } else if (command.equals("q")) {
             System.exit(0);
         } else {
@@ -83,7 +83,7 @@ public class PeriodApp {
 
     }
 
-    private void previousPeriod() {
+    private void printPreviousPeriod() {
         List<PeriodDay> days = periodTracker.getPeriod();
 
         for (PeriodDay p : days) {
@@ -102,19 +102,20 @@ public class PeriodApp {
     public void loadExistingFile() {
         try {
             periodTracker = jsonReader.read();
-            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
+            System.out.println("Loaded " + periodTracker.getFast() + " from " + PERIOD_TRACK);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + PERIOD_TRACK);
         }
 
     }
 
+
     public void saveFile() {
         try {
             jsonWriter.open();
             jsonWriter.write(periodTracker);
             jsonWriter.close();
-            System.out.println("saved" + periodTracker.getName() + "to" + PERIOD_TRACK);
+            System.out.println("saved" + periodTracker.getFast() + "to" + PERIOD_TRACK);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 
@@ -152,6 +153,7 @@ public class PeriodApp {
 
         System.out.println("Did you fast today? (yes/no)");
 
+
         while (true) {
             command = input.next();
             command = command.toLowerCase();
@@ -171,9 +173,10 @@ public class PeriodApp {
                 System.out.println("Not a valid response");
 
             }
-            periodTracker.addPeriodDay(new PeriodDay(false,false,"mood","alaa"));
 
         }
+        periodTracker.addDay(new PeriodDay(period.getPeriod(), period.getFast(), "mood", "user"));
+
     }
 
     //EFFECTS:print summary of user's potential moods

@@ -25,5 +25,5 @@ This project is of interest to me for many reasons :
 - As a user, I want to be able to state my mood during that day
 - As a user, I want to be able to track the number of days I need to make up my fast
 - As a user, I want to be able to input when I fasted a day
-- As a user, I want to be able to save the data inputted into my period tracker
-- As a user, I want to be able to reload when I had previously inputted data related to my period
+- As a user, I want to be able to save the data inputted into my period tracker regarding whether I fasted or not 
+- As a user, I want to be able to reload when I had previously inputted data related to my fasting

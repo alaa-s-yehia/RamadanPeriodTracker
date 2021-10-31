@@ -10,7 +10,6 @@ import java.util.List;
 
 //Represents a list of period days
 public class PeriodTracker implements Writable {
-
     protected List<PeriodDay> periodDays;
     protected int fast = 0; // Number of days fasted so far
     protected int period = 0; // Number of days user has been on their period
@@ -22,7 +21,7 @@ public class PeriodTracker implements Writable {
     //EFFECTS: creates a list of the inputs of a period day .
     // tracking user's input
     public PeriodTracker(String name) {
-        this.periodDays = new ArrayList<>();
+        periodDays = new ArrayList<>();
         this.name = name;
     }
 
@@ -41,9 +40,13 @@ public class PeriodTracker implements Writable {
             fast++;
         }
 
-        periodDays.add(day);
     }
 
+    // MODIFIES: this
+    // EFFECTS: adds day to this PeriodTracker
+    public void addDay(PeriodDay day) {
+        periodDays.add(day);
+    }
 
 
     //EFFECTS: returns the number of days fasted so far
@@ -57,7 +60,7 @@ public class PeriodTracker implements Writable {
     }
 
 
-    //EFFECTS: returns an unmodifiable list of days in this periodtraker
+    //EFFECTS: returns an unmodifiable list of days in this periodtracker
     public List<PeriodDay> getPeriod() {
         return Collections.unmodifiableList(periodDays);
     }

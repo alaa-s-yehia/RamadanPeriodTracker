@@ -55,10 +55,18 @@ public class PeriodDay implements Writable {
         this.mood = mood;
     }
 
+    public String toString() {
+        return fast + "!";
+
+    }
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("name", name);
+        json.put("mood",mood);
+        json.put("period",period);
+        json.put("fast",fast);
         return json;
     }
 
