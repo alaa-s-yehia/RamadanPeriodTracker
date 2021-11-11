@@ -17,6 +17,7 @@ public class OpeningGui {
     private final LoadGUI loadGUI;
     private final SaveGUI saveGUI;
     private final ViewDaysFastedGUI viewDaysGUI;
+    private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(welcomePanel);
 
 
 
@@ -34,24 +35,27 @@ public class OpeningGui {
 
     }
 
-    public JPanel WelcomePage() {
+    public JPanel welcomePage() {
         panelBuilder.buildMainPanel();
         panelBuilder.buildPanelLabel(welcomeJLabel, 32, 65, 10, 500, 60);
-        panelBuilder.buildButton(logInButton, 190, 250, 100, 25);
-        panelBuilder.buildButton(signUpButton, 190, 275, 100, 25);
+        panelBuilder.buildButton(loadButton, 190, 250, 100, 25);
+        panelBuilder.buildButton(saveButton, 190, 275, 100, 25);
+        panelBuilder.buildButton(addPeriodDayButton,150,250,100,25);
+        panelBuilder.buildButton(viewDaysFastedButton,130,220,100,25);
+
         return welcomePanel;
     }
 
-    private void loadButtonListener() {
-        loadButton.addActionListener(e -> this.panelStack.loadPanel(this.loadGUI.logInPage()));
-    }
-
-    private void saveButtonListener() {
-        saveButton.addActionListener(e -> this.panelStack.loadPanel(this.saveGUI.signUpPage()));
-    }
+//    private void loadButtonListener() {
+//        loadButton.addActionListener(e -> this.panelStack.loadPanel(this.loadGUI.logInPage()));
+//    }
+//
+//    private void saveButtonListener() {
+//        saveButton.addActionListener(e -> this.panelStack.loadPanel(this.saveGUI.signUpPage()));
+//    }
 
     private void addPeriodDayButtonListener() {
-        addPeriodDayButton.addActionListener(e -> this.panelStack.loadPanel(this.addPeriodGUI.logInPage()));
+        addPeriodDayButton.addActionListener(e -> this.panelStack.loadPanel(this.addPeriodGUI.addPeriodDayPage()));
     }
 
     private void viewDaysFastedButtonListener() {
