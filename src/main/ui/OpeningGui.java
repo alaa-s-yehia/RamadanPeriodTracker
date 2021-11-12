@@ -59,7 +59,7 @@ public class OpeningGui {
     }
 
     private void viewDaysFastedButtonListener() {
-        viewDaysFastedButton.addActionListener(e -> this.panelStack.loadPanel(this.viewDaysGUI.signUpPage()));
+        viewDaysFastedButton.addActionListener(e -> this.panelStack.loadPanel(this.viewDaysGUI.viewDaysFastedPage()));
     }
 }
 

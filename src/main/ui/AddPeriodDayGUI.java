@@ -40,6 +40,7 @@ public class AddPeriodDayGUI implements ActionListener {
         this.openingGUI = menu;
         this.periodTracker = periodTracker;
         this.periodDay = periodDay;
+        addPeriodDayPage();
         enterButtonListen();
         addPeriodDayButton.addActionListener(this);
     }

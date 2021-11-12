@@ -5,9 +5,6 @@ import model.PeriodTracker;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
 public class AddPeriodDaySystem {
@@ -59,7 +56,6 @@ public class AddPeriodDaySystem {
         } else if (command.equals("sad")) {
             System.out.println("I hope your day gets better!");
             period.setMood("sad");
-            break;
 
         } else if (command.equals("angry")) {
             System.out.println("I hope your day gets better!");
@@ -67,8 +63,4 @@ public class AddPeriodDaySystem {
         }
     }
 
-    public boolean validAnswer(String period, String fast, String mood) {
-        return
-
-    }
 }
