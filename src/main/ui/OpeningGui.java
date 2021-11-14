@@ -17,20 +17,17 @@ public class OpeningGui {
     private final JButton viewDaysFastedButton = new JButton("View Days Fasted ");
     private final AddPeriodDayGUI addPeriodGUI;
     private final ViewDaysFastedGUI viewDaysGUI;
-    private final RamadanCalendar ramadanCalendar;
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(welcomePanel);
 
 
     public OpeningGui(SaveSystem saveSystem, LoadSystem loadSystem,
                       AddPeriodDayGUI addPeriodDayGUI, ViewDaysFastedGUI viewDaysFastedGUI,
-                      RamadanCalendar ramadanCalendar,
                       PanelStack panelStack) {
         this.panelStack = panelStack;
         this.addPeriodGUI = addPeriodDayGUI;
         this.viewDaysGUI = viewDaysFastedGUI;
         this.saveSystem = saveSystem;
         this.loadSystem = loadSystem;
-        this.ramadanCalendar = ramadanCalendar;
         loadButtonListen();
         saveButtonListen();
         addPeriodDayButtonListener();
@@ -40,11 +37,11 @@ public class OpeningGui {
 
     public JPanel welcomePage() {
         panelBuilder.buildMainPanel();
-        panelBuilder.buildPanelLabel(welcomeJLabel, 25, 65, 10, 500, 60);
-        panelBuilder.buildButton(loadButton, 190, 325, 100, 25);
-        panelBuilder.buildButton(saveButton, 190, 350, 100, 25);
-        panelBuilder.buildButton(addPeriodDayButton, 190, 275, 100, 25);
-        panelBuilder.buildButton(viewDaysFastedButton, 190, 300, 100, 25);
+        panelBuilder.buildPanelLabel(welcomeJLabel, 32, 65, 10, 500, 60);
+        panelBuilder.buildButton(loadButton, 190, 250, 100, 25);
+        panelBuilder.buildButton(saveButton, 190, 275, 100, 25);
+        panelBuilder.buildButton(addPeriodDayButton, 150, 250, 100, 25);
+        panelBuilder.buildButton(viewDaysFastedButton, 130, 220, 100, 25);
 
         return welcomePanel;
     }

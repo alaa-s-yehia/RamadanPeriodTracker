@@ -10,12 +10,11 @@ import javax.swing.SwingUtilities;
 //cite:
 public class RamadanCalendarFrame implements Runnable {
     private JFrame  frame;
-//    private final PanelStack panelStack;
 
     @Override
     public void run() {
-//        // Month is zero based
-//        RamadanCalendar panel = new RamadanCalendar(4, 2022);
+        // Month is zero based
+        RamadanCalendar panel = new RamadanCalendar(4, 2022);
 
         frame = new JFrame();
         frame.setTitle("Calendar");
@@ -28,7 +27,7 @@ public class RamadanCalendarFrame implements Runnable {
         });
 
         frame.setLayout(new FlowLayout());
-//        frame.add(panelStack);
+        frame.add(panel);
         frame.pack();
         // frame.setBounds(100, 100, 400, 200);
         frame.setVisible(true);

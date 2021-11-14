@@ -20,12 +20,11 @@ public class MainGUI {
     private PanelStack panelStack = new PanelStack(mainFrame);
     private SaveSystem saveSystem = new SaveSystem();
     private LoadSystem loadSystem = new LoadSystem();
-    private RamadanCalendar ramadanCalendar;
     private AddPeriodDaySystem addPeriodDaySystem = new AddPeriodDaySystem();
     private ViewDaysFastedGUI viewDaysFastedGUI;
     private AddPeriodDayGUI addPeriodDayGUI;
     private OpeningGui openingGui = new OpeningGui(saveSystem, loadSystem,
-            addPeriodDayGUI, viewDaysFastedGUI, ramadanCalendar,panelStack);
+            addPeriodDayGUI, viewDaysFastedGUI, panelStack);
     private JPanel currentJPanel = new JPanel();
 
 
@@ -41,7 +40,6 @@ public class MainGUI {
         periodTracker = new PeriodTracker("My Tracker");
         viewDaysFastedGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
         addPeriodDayGUI = new AddPeriodDayGUI(addPeriodDaySystem, periodTracker, panelStack);
-        ramadanCalendar = new RamadanCalendar(0, 0, panelStack);
         run();
         exitButtonListen();
     }

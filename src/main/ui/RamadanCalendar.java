@@ -2,9 +2,7 @@ package ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import model.PeriodTracker;
-
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
@@ -137,10 +135,6 @@ public class RamadanCalendar extends JPanel {
         return dayPanel;
     }
 
-    protected JPanel addDayToCalendar() {
-        addPeriodDaySystem.printPeriodGUI();
 
-    }
 }
-
 
