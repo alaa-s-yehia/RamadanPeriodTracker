@@ -2,6 +2,7 @@ package ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import model.PeriodTracker;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.SystemColor;
@@ -19,8 +20,9 @@ public class RamadanCalendar extends JPanel {
 
     protected int month;
     protected int year;
-
-    protected String[] monthNames = {"Ramadan"};
+    protected PeriodTracker periodTracker;
+    protected AddPeriodDaySystem addPeriodDaySystem;
+    protected String monthName = "Ramadan";
 
     protected String[] dayNames = {"S", "M", "T", "W",
             "T", "F", "S"};
@@ -28,6 +30,8 @@ public class RamadanCalendar extends JPanel {
     public RamadanCalendar(int month, int year) {
         this.month = month;
         this.year = year;
+        periodTracker = new PeriodTracker("My Tracker");
+        addPeriodDaySystem = new AddPeriodDaySystem();
 
         this.add(createGUI());
     }
@@ -52,7 +56,7 @@ public class RamadanCalendar extends JPanel {
         titlePanel.setLayout(new FlowLayout());
         titlePanel.setBackground(Color.WHITE);
 
-        JLabel label = new JLabel(monthNames[month] + " " + year);
+        JLabel label = new JLabel("Ramadan" + year);
         label.setForeground(SystemColor.activeCaption);
 
         titlePanel.add(label, BorderLayout.CENTER);
@@ -130,6 +134,7 @@ public class RamadanCalendar extends JPanel {
 
         return dayPanel;
     }
+
 
 }
 

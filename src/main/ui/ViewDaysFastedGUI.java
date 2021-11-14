@@ -4,13 +4,11 @@ import model.PeriodDay;
 import model.PeriodTracker;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
 
 public class ViewDaysFastedGUI {
     private final PanelStack panelStack;
-    private final ViewDaysFastedSystem viewDaysFasted;
-    private final OpeningGui openingGUI;
     private final PeriodTracker periodTracker;
-    private final PeriodDay periodDay;
     private final JPanel fastPanel = new JPanel();
     private final JLabel daysFastedLabel;
     private final JLabel titleLabel = new JLabel("Days Fasted");
@@ -18,14 +16,10 @@ public class ViewDaysFastedGUI {
     private final JButton backButton = new JButton("back");
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(fastPanel);
 
-    public ViewDaysFastedGUI(OpeningGui menu, ViewDaysFastedSystem viewDaysFasted,
-                             PeriodDay periodDay, PeriodTracker periodTracker, PanelStack panelStack) {
+    public ViewDaysFastedGUI(PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
-        this.viewDaysFasted = viewDaysFasted;
-        this.openingGUI = menu;
         this.periodTracker = periodTracker;
-        this.periodDay = periodDay;
-        this.daysFastedLabel =  new JLabel("You have " + periodTracker.getDaysLeftToFast()
+        this.daysFastedLabel = new JLabel("You have " + periodTracker.getDaysLeftToFast()
                 + " days left to fast.");
         viewDaysFastedPage();
         backButtonListen();

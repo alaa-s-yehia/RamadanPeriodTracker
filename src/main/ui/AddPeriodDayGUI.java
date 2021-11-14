@@ -13,9 +13,7 @@ import java.util.Objects;
 public class AddPeriodDayGUI implements ActionListener {
     private final PanelStack panelStack;
     private final AddPeriodDaySystem addPeriodDay;
-    private final OpeningGui openingGUI;
     private final PeriodTracker periodTracker;
-    private final PeriodDay periodDay;
     private final JPanel loginPanel = new JPanel();
     private final JLabel titleLabel = new JLabel("Ramadan Tracker");
     private final JLabel onPeriodJLabel = new JLabel("Are you on your period?");
@@ -33,17 +31,15 @@ public class AddPeriodDayGUI implements ActionListener {
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(loginPanel);
 
 
-    public AddPeriodDayGUI(OpeningGui menu, AddPeriodDaySystem addPeriodDay,
-                           PeriodDay periodDay, PeriodTracker periodTracker, PanelStack panelStack) {
+    public AddPeriodDayGUI(AddPeriodDaySystem addPeriodDay, PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
         this.addPeriodDay = addPeriodDay;
-        this.openingGUI = menu;
         this.periodTracker = periodTracker;
-        this.periodDay = periodDay;
         addPeriodDayPage();
         enterButtonListen();
         addPeriodDayButton.addActionListener(this);
     }
+
 
     public JPanel addPeriodDayPage() {
         // PANEL:
