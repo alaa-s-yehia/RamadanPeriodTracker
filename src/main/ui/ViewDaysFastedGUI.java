@@ -10,7 +10,7 @@ public class ViewDaysFastedGUI {
     private final PanelStack panelStack;
     private final PeriodTracker periodTracker;
     private final JPanel fastPanel = new JPanel();
-    private final JLabel daysFastedLabel;
+    private final JLabel daysFastedLabel = new JLabel();
     private final JLabel titleLabel = new JLabel("Days Fasted");
     private final JLabel programTitleJLabel = new JLabel("Ramadan Period Tracker");
     private final JButton backButton = new JButton("back");
@@ -19,23 +19,29 @@ public class ViewDaysFastedGUI {
     public ViewDaysFastedGUI(PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
         this.periodTracker = periodTracker;
-        this.daysFastedLabel = new JLabel("You have " + periodTracker.getDaysLeftToFast()
-                + " days left to fast.");
-        viewDaysFastedPage();
+//        viewDaysFastedPage();
         backButtonListen();
+    }
+
+    public void updatePeriodDays() {
+        this.daysFastedLabel.setText("You have " + periodTracker.getDaysLeftToFast()
+                + " days left to fast.");
     }
 
     public JPanel viewDaysFastedPage() {
         // PANEL:
         panelBuilder.buildMainPanel();
         // SIGNUP TITLE:
-        panelBuilder.buildPanelLabel(titleLabel, 20, 200, 164, 200, 30);
+        panelBuilder.buildPanelLabel(titleLabel, 20, 180, 100, 200, 30);
         // PROGRAM TITLE:
-        panelBuilder.buildPanelLabel(programTitleJLabel, 32, 65, 10, 500, 60);
+        panelBuilder.buildPanelLabel(programTitleJLabel, 32, 40, 10, 500, 60);
+
         //NUMBER OF DAYS FASTED TITLE:
-        panelBuilder.buildPanelLabel(daysFastedLabel, 50, 80, 10, 500, 60);
+        updatePeriodDays();
+        panelBuilder.buildPanelLabel(daysFastedLabel, 20, 80, 200, 500, 60);
         // BACK BUTTON:
-        panelBuilder.buildButton(backButton, 10, 430, 80, 25);
+        panelBuilder.buildButton(backButton, 10, 400, 80, 25);
+
         return fastPanel;
     }
 

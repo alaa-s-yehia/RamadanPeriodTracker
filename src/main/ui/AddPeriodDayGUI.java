@@ -26,7 +26,7 @@ public class AddPeriodDayGUI implements ActionListener {
     private final JComboBox typeComboBox = new JComboBox(onPeriodTypes);
     private final JComboBox typeComboBox2 = new JComboBox(onFastTypes);
     private final JComboBox typeComboBox3 = new JComboBox(moodTypes);
-    private final JButton addPeriodDayButton = new JButton("Add Period Day");
+    private final JButton confirmButton = new JButton("Confirm");
     private final JButton enterButton = new JButton("enter");
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(loginPanel);
 
@@ -35,9 +35,8 @@ public class AddPeriodDayGUI implements ActionListener {
         this.panelStack = panelStack;
         this.addPeriodDay = addPeriodDay;
         this.periodTracker = periodTracker;
-        addPeriodDayPage();
         enterButtonListen();
-        addPeriodDayButton.addActionListener(this);
+        confirmButton.addActionListener(this);
     }
 
 
@@ -45,22 +44,22 @@ public class AddPeriodDayGUI implements ActionListener {
         // PANEL:
         panelBuilder.buildMainPanel();
         // PROGRAM TITLE:
-        panelBuilder.buildPanelLabel(programTitleJLabel, 32, 65, 10, 500, 60);
-        // LOGIN TITLE:
-        panelBuilder.buildPanelLabel(titleLabel, 20, 229, 164, 80, 30);
+        panelBuilder.buildPanelLabel(programTitleJLabel, 32, 40, 10, 500, 60);
         // ON PERIOD:
-        panelBuilder.buildComponent(onPeriodJLabel, 123, 214, 80, 25);
-        panelBuilder.buildComponent(typeComboBox, 193, 200, 165, 25);
+        panelBuilder.buildComponent(onPeriodJLabel, 140, 200, 200, 25);
+        panelBuilder.buildComponent(typeComboBox, 150, 225, 165, 25);
         // FASTING?:
-        panelBuilder.buildComponent(fastJLabel, 123, 264, 80, 25);
-        panelBuilder.buildComponent(typeComboBox2, 113, 240, 165, 25);
+        panelBuilder.buildComponent(fastJLabel, 170, 264, 200, 25);
+        panelBuilder.buildComponent(typeComboBox2, 150, 289, 165, 25);
         //MOOD?:
-        panelBuilder.buildComponent(moodJLabel, 123, 284, 80, 25);
-        panelBuilder.buildComponent(typeComboBox3, 113, 264, 165, 25);
-        // LOGIN BUTTON:
-        panelBuilder.buildButton(addPeriodDayButton, 214, 344, 80, 25);
+        panelBuilder.buildComponent(moodJLabel, 120, 330, 300, 25);
+        panelBuilder.buildComponent(typeComboBox3, 150, 355, 165, 25);
         // BACK BUTTON:
         panelBuilder.buildButton(enterButton, 10, 410, 80, 25);
+
+        panelBuilder.buildButton(confirmButton, 70, 410, 80, 25);
+
+
         onPeriodJLabel.setFont(panelBuilder.getInfoFont());
         fastJLabel.setFont(panelBuilder.getInfoFont());
         return loginPanel;
@@ -68,6 +67,7 @@ public class AddPeriodDayGUI implements ActionListener {
 
     private void enterButtonListen() {
         enterButton.addActionListener(e -> {
+            addPeriodDay.addToTracker(periodTracker);
             panelStack.pop();
             JPanel panel = (JPanel) panelStack.pop();
             panelStack.loadPanel(panel);
@@ -76,27 +76,29 @@ public class AddPeriodDayGUI implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if (Objects.equals(typeComboBox.getSelectedItem(), "yes")) {
-            addPeriodDay.printPeriodGUI();
-
-        } else if (Objects.equals(typeComboBox.getSelectedItem(), "no")) {
-            addPeriodDay.printPeriodGUI();
-
-        }
-        if (Objects.equals(typeComboBox2.getSelectedItem(), "yes")) {
-            addPeriodDay.printFastGUI();
-
-        } else if (Objects.equals(typeComboBox2.getSelectedItem(), "no")) {
-            addPeriodDay.printFastGUI();
-        }
-        if (Objects.equals(typeComboBox3.getSelectedItem(), "sad")) {
-            addPeriodDay.printMoodGUI();
-        } else if (Objects.equals(typeComboBox3.getSelectedItem(), "happy")) {
-            addPeriodDay.printMoodGUI();
-        } else if (Objects.equals(typeComboBox3.getSelectedItem(), "angry")) {
-            addPeriodDay.printMoodGUI();
-        }
+        addPeriodDay.setPeriod((String) typeComboBox.getSelectedItem());
+        addPeriodDay.setFast((String) typeComboBox2.getSelectedItem());
+        addPeriodDay.setMood((String) typeComboBox3.getSelectedItem());
+//        if (Objects.equals(typeComboBox.getSelectedItem(), "yes")) {
+//            addPeriodDay.printPeriodGUI();
+//
+//        } else if (Objects.equals(typeComboBox.getSelectedItem(), "no")) {
+//            addPeriodDay.printPeriodGUI();
+//
+//        }
+//        if (Objects.equals(typeComboBox2.getSelectedItem(), "yes")) {
+//            addPeriodDay.printFastGUI();
+//
+//        } else if (Objects.equals(typeComboBox2.getSelectedItem(), "no")) {
+//            addPeriodDay.printFastGUI();
+//        }
+//        if (Objects.equals(typeComboBox3.getSelectedItem(), "sad")) {
+//            addPeriodDay.printMoodGUI();
+//        } else if (Objects.equals(typeComboBox3.getSelectedItem(), "happy")) {
+//            addPeriodDay.printMoodGUI();
+//        } else if (Objects.equals(typeComboBox3.getSelectedItem(), "angry")) {
+//            addPeriodDay.printMoodGUI();
+//        }
     }
 }
 

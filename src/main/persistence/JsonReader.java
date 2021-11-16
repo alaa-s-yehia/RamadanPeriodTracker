@@ -70,7 +70,7 @@ public class JsonReader {
         Boolean fast = jsonObject.getBoolean("fast");
         String mood = jsonObject.getString("mood");
         PeriodDay day = new PeriodDay(period, fast, mood, name);
-        pt.addDay(day);
+        pt.addPeriodDay(day);
     }
 
 }

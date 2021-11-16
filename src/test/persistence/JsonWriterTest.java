@@ -48,8 +48,8 @@ public class JsonWriterTest extends JsonTest {
     void testWriterGeneralPeriodTracker() {
         try {
             PeriodTracker pt = new PeriodTracker("My Period Tracker");
-            pt.addDay(new PeriodDay(false, true, "sad", "alaa"));
-            pt.addDay(new PeriodDay(false, false, "angry", "alaa"));
+            pt.addPeriodDay(new PeriodDay(false, true, "sad", "alaa"));
+            pt.addPeriodDay(new PeriodDay(false, false, "angry", "alaa"));
             JsonWriter writer = new JsonWriter("./data/testWriterGeneralPeriodTracker.json");
             writer.open();
             writer.write(pt);

@@ -20,6 +20,11 @@ public class PeriodDay implements Writable {
         this.name = name;
     }
 
+    // empty constructor
+    public PeriodDay(){
+
+    }
+
     //EFFECTS: returns true if user fasted
     public boolean getFast() {
         return fast;

@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(Main::new);
-        SwingUtilities.invokeLater(new RamadanCalendarFrame());
+//        SwingUtilities.invokeLater(new RamadanCalendarFrame());
         try {
             new PeriodApp();
         } catch (FileNotFoundException e) {

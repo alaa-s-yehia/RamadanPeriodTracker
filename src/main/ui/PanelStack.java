@@ -15,6 +15,7 @@ public class PanelStack extends Stack {
         return mainFrame;
     }
 
+
     public void loadPanel(JPanel panel) {
         this.add(panel);
         mainFrame.setContentPane(panel);

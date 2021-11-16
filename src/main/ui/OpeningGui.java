@@ -2,7 +2,7 @@ package ui;
 
 
 import javax.swing.*;
-import java.awt.event.WindowAdapter;
+
 
 
 public class OpeningGui {
@@ -28,24 +28,24 @@ public class OpeningGui {
         this.viewDaysGUI = viewDaysFastedGUI;
         this.saveSystem = saveSystem;
         this.loadSystem = loadSystem;
-        loadButtonListen();
-        saveButtonListen();
         addPeriodDayButtonListener();
         viewDaysFastedButtonListener();
+        loadButtonListen();
+        saveButtonListen();
+
 
     }
 
     public JPanel welcomePage() {
         panelBuilder.buildMainPanel();
-        panelBuilder.buildPanelLabel(welcomeJLabel, 32, 65, 10, 500, 60);
-        panelBuilder.buildButton(loadButton, 190, 250, 100, 25);
-        panelBuilder.buildButton(saveButton, 190, 275, 100, 25);
-        panelBuilder.buildButton(addPeriodDayButton, 150, 250, 100, 25);
-        panelBuilder.buildButton(viewDaysFastedButton, 130, 220, 100, 25);
+        panelBuilder.buildPanelLabel(welcomeJLabel, 32, 45, 10, 500, 60);
+        panelBuilder.buildButton(loadButton, 190, 325, 100, 25);
+        panelBuilder.buildButton(saveButton, 190, 350, 100, 25);
+        panelBuilder.buildButton(addPeriodDayButton, 130, 275, 240, 25);
+        panelBuilder.buildButton(viewDaysFastedButton, 130, 300, 240, 25);
 
         return welcomePanel;
     }
-
 
 
 
@@ -73,6 +73,8 @@ public class OpeningGui {
     private void viewDaysFastedButtonListener() {
         viewDaysFastedButton.addActionListener(e -> this.panelStack.loadPanel(this.viewDaysGUI.viewDaysFastedPage()));
     }
+
+
 }
 
 

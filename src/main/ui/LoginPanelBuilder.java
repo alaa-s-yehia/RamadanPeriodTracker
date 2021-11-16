@@ -31,21 +31,25 @@ public class LoginPanelBuilder {
         this.panel.setLayout(null);
     }
 
+    public void buildCalendar(){
+
+    }
+
 
     /**
      * Builds the JLabel of the panel
      *
-     * @param jLabel represents the title of the panel
-     * @param size   of the text font of the jLabel
-     * @param x      represents the x coordinate of the jLabel
-     * @param y      represents the y coordinate of the jLabel
-     * @param width  of the jLabel
-     * @param height of the jLabel
+     * @param justLabel represents the title of the panel
+     * @param size   of the text font of the justLabel
+     * @param x      represents the x coordinate of the justLabel
+     * @param y      represents the y coordinate of the justLabel
+     * @param width  of the justLabel
+     * @param height of the justLabel
      */
-    public void buildPanelLabel(JLabel jLabel, int size, int x, int y, int width, int height) {
-        jLabel.setFont(new Font(Font.MONOSPACED, Font.TYPE1_FONT, size));
-        jLabel.setBounds(x, y, width, height);
-        this.panel.add(jLabel);
+    public void buildPanelLabel(JLabel justLabel, int size, int x, int y, int width, int height) {
+        justLabel.setFont(new Font(Font.MONOSPACED, Font.TYPE1_FONT, size));
+        justLabel.setBounds(x, y, width, height);
+        this.panel.add(justLabel);
     }
 
 

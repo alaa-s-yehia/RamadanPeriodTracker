@@ -180,7 +180,7 @@ public class PeriodApp {
 
         }
         periodTracker.getDaysLeftToFast();
-        periodTracker.addDay(new PeriodDay(period.getPeriod(), period.getFast(), "mood", "user"));
+        periodTracker.addPeriodDay(new PeriodDay(period.getPeriod(), period.getFast(), "mood", "user"));
 
     }
 

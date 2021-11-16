@@ -5,11 +5,11 @@ import model.PeriodTracker;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class AddPeriodDaySystem {
     protected PeriodDay period;
-    private PeriodTracker periodTracker;
     protected int fast;
     protected Scanner input;
     private static final String PERIOD_TRACK = "./data/periodTracker.json";
@@ -18,49 +18,25 @@ public class AddPeriodDaySystem {
 
 
     public AddPeriodDaySystem() {
-        periodTracker = new PeriodTracker("My Tracker");
+        period = new PeriodDay(false, false, "sad", "My Tracker");
 
     }
 
-    public void printPeriodGUI() {
-        String command = null;
-        command = command.toLowerCase();
-        if (command.equals("yes")) {
-            period.setPeriod(true);
 
-        } else if (command.equals("no")) {
-            period.setPeriod(false);
-        }
-
-
+    public void setPeriod(String ans) {
+        period.setPeriod(Objects.equals(ans, "yes"));
     }
 
-    public void printFastGUI() {
-        String command = "";
-        if (command.equals("yes")) {
-            period.setFast(true);
-        } else if (command.equals("no")) {
-            System.out.println("That's alright!");
-            period.setFast(false);
-
-        }
+    public void setFast(String ans) {
+        period.setFast(Objects.equals(ans, "yes"));
     }
 
-    public void printMoodGUI() {
-        String command = "";
-        if (command.equals("happy")) {
-            System.out.println("That's good to hear!");
-            period.setMood("happy");
+    public void setMood(String ans) {
+        period.setMood(ans);
+    }
 
-
-        } else if (command.equals("sad")) {
-            System.out.println("I hope your day gets better!");
-            period.setMood("sad");
-
-        } else if (command.equals("angry")) {
-            System.out.println("I hope your day gets better!");
-            period.setMood("angry");
-        }
+    public void addToTracker(PeriodTracker periodTracker) {
+        periodTracker.addPeriodDay(period);
     }
 
 }

@@ -14,17 +14,16 @@ import java.util.Scanner;
 
 public class MainGUI {
     private JFrame mainFrame = new JFrame();
-    private PeriodTracker periodTracker;
     protected Scanner input;
     private JButton exitButton = new JButton("exit");
     private PanelStack panelStack = new PanelStack(mainFrame);
     private SaveSystem saveSystem = new SaveSystem();
     private LoadSystem loadSystem = new LoadSystem();
     private AddPeriodDaySystem addPeriodDaySystem = new AddPeriodDaySystem();
-    private ViewDaysFastedGUI viewDaysFastedGUI;
-    private AddPeriodDayGUI addPeriodDayGUI;
-    private OpeningGui openingGui = new OpeningGui(saveSystem, loadSystem,
-            addPeriodDayGUI, viewDaysFastedGUI, panelStack);
+    private PeriodTracker periodTracker = new PeriodTracker("My Tracker");
+    private ViewDaysFastedGUI viewDaysFastedGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
+    private AddPeriodDayGUI addPeriodDayGUI = new AddPeriodDayGUI(addPeriodDaySystem, periodTracker, panelStack);
+    private OpeningGui openingGui = new OpeningGui(saveSystem, loadSystem, addPeriodDayGUI, viewDaysFastedGUI, panelStack);
     private JPanel currentJPanel = new JPanel();
 
 
@@ -37,9 +36,6 @@ public class MainGUI {
         mainFrame.setSize(500, 500);
         mainFrame.setResizable(false);
         mainFrame.setTitle("Ramadan Period Tracker");
-        periodTracker = new PeriodTracker("My Tracker");
-        viewDaysFastedGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
-        addPeriodDayGUI = new AddPeriodDayGUI(addPeriodDaySystem, periodTracker, panelStack);
         run();
         exitButtonListen();
     }
