@@ -62,7 +62,7 @@ public class PeriodDay implements Writable {
     //  EFFECTS: returns string representation of the days fasted
 
     public String toString() {
-        return fast + "!";
+        return period + "!" + fast + "!" + mood + "!";
 
     }
 

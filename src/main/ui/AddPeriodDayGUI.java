@@ -1,13 +1,11 @@
 package ui;
 
-import model.PeriodDay;
 import model.PeriodTracker;
 
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Objects;
 
 
 public class AddPeriodDayGUI implements ActionListener {
@@ -27,7 +25,7 @@ public class AddPeriodDayGUI implements ActionListener {
     private final JComboBox typeComboBox2 = new JComboBox(onFastTypes);
     private final JComboBox typeComboBox3 = new JComboBox(moodTypes);
     private final JButton confirmButton = new JButton("Confirm");
-    private final JButton enterButton = new JButton("enter");
+    private final JButton backButton = new JButton("back");
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(loginPanel);
 
 
@@ -35,7 +33,7 @@ public class AddPeriodDayGUI implements ActionListener {
         this.panelStack = panelStack;
         this.addPeriodDay = addPeriodDay;
         this.periodTracker = periodTracker;
-        enterButtonListen();
+        backButtonListen();
         confirmButton.addActionListener(this);
     }
 
@@ -55,9 +53,9 @@ public class AddPeriodDayGUI implements ActionListener {
         panelBuilder.buildComponent(moodJLabel, 120, 330, 300, 25);
         panelBuilder.buildComponent(typeComboBox3, 150, 355, 165, 25);
         // BACK BUTTON:
-        panelBuilder.buildButton(enterButton, 10, 410, 80, 25);
+        panelBuilder.buildButton(backButton, 10, 410, 80, 25);
 
-        panelBuilder.buildButton(confirmButton, 70, 410, 80, 25);
+        panelBuilder.buildButton(confirmButton, 350, 410, 100, 25);
 
 
         onPeriodJLabel.setFont(panelBuilder.getInfoFont());
@@ -65,8 +63,8 @@ public class AddPeriodDayGUI implements ActionListener {
         return loginPanel;
     }
 
-    private void enterButtonListen() {
-        enterButton.addActionListener(e -> {
+    private void backButtonListen() {
+        backButton.addActionListener(e -> {
             addPeriodDay.addToTracker(periodTracker);
             panelStack.pop();
             JPanel panel = (JPanel) panelStack.pop();
@@ -79,26 +77,7 @@ public class AddPeriodDayGUI implements ActionListener {
         addPeriodDay.setPeriod((String) typeComboBox.getSelectedItem());
         addPeriodDay.setFast((String) typeComboBox2.getSelectedItem());
         addPeriodDay.setMood((String) typeComboBox3.getSelectedItem());
-//        if (Objects.equals(typeComboBox.getSelectedItem(), "yes")) {
-//            addPeriodDay.printPeriodGUI();
-//
-//        } else if (Objects.equals(typeComboBox.getSelectedItem(), "no")) {
-//            addPeriodDay.printPeriodGUI();
-//
-//        }
-//        if (Objects.equals(typeComboBox2.getSelectedItem(), "yes")) {
-//            addPeriodDay.printFastGUI();
-//
-//        } else if (Objects.equals(typeComboBox2.getSelectedItem(), "no")) {
-//            addPeriodDay.printFastGUI();
-//        }
-//        if (Objects.equals(typeComboBox3.getSelectedItem(), "sad")) {
-//            addPeriodDay.printMoodGUI();
-//        } else if (Objects.equals(typeComboBox3.getSelectedItem(), "happy")) {
-//            addPeriodDay.printMoodGUI();
-//        } else if (Objects.equals(typeComboBox3.getSelectedItem(), "angry")) {
-//            addPeriodDay.printMoodGUI();
-//        }
+
     }
 }
 

@@ -73,9 +73,9 @@ public class PeriodApp {
         } else if (command.equals("s")) {
             saveFile();
         } else if (command.equals("l")) {
-            loadExistingFile();
+            //loadExistingFile();
         } else if (command.equals("r")) {
-            printPreviousPeriod();
+         //   printPreviousPeriod();
         } else if (command.equals("q")) {
             System.exit(0);
         } else {
@@ -85,13 +85,13 @@ public class PeriodApp {
     }
 
     // EFFECTS: prints all the days fasted in periodTracker to the console
-    private void printPreviousPeriod() {
-        List<PeriodDay> days = periodTracker.getPeriod();
-
-        for (PeriodDay p : days) {
-            System.out.println(p);
-        }
-    }
+//    private void printPreviousPeriod() {
+//        List<PeriodDay> days = periodTracker.getPeriod();
+//
+//        for (PeriodDay p : days) {
+//            System.out.println(p);
+//        }
+//    }
 
     // MODIFIES: this
     //EFFECTS:Initializes period day
@@ -103,15 +103,15 @@ public class PeriodApp {
 
     // MODIFIES: this
     // EFFECTS: loads periodTracker from file
-    public void loadExistingFile() {
-        try {
-            periodTracker = jsonReader.read();
-            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
-        } catch (IOException e) {
-            System.out.println("Unable to read from file: " + PERIOD_TRACK);
-        }
-
-    }
+//    public void loadExistingFile() {
+//        try {
+//            periodTracker = jsonReader.read();
+//            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
+//        } catch (IOException e) {
+//            System.out.println("Unable to read from file: " + PERIOD_TRACK);
+//        }
+//
+//    }
 
     // EFFECTS: saves the periodTracker to file
     public void saveFile() {
@@ -119,7 +119,7 @@ public class PeriodApp {
             jsonWriter.open();
             jsonWriter.write(periodTracker);
             jsonWriter.close();
-            System.out.println("saved" + periodTracker.getDaysLeftToFast() + "to" + PERIOD_TRACK);
+     //       System.out.println("saved" + periodTracker.getDaysLeftToFast() + "to" + PERIOD_TRACK);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 
@@ -179,8 +179,8 @@ public class PeriodApp {
             }
 
         }
-        periodTracker.getDaysLeftToFast();
-        periodTracker.addPeriodDay(new PeriodDay(period.getPeriod(), period.getFast(), "mood", "user"));
+//        periodTracker.getDaysLeftToFast();
+//        periodTracker.addPeriodDay(new PeriodDay(period.getPeriod(), period.getFast(), "mood", "user"));
 
     }
 

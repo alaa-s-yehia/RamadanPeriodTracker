@@ -75,6 +75,11 @@ public class PeriodTracker implements Writable {
         return periodDays.size();
     }
 
+
+
+
+
+
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
@@ -84,7 +89,7 @@ public class PeriodTracker implements Writable {
     }
 
     // EFFECTS: returns days in this periodTracker as a JSON array
-    private JSONArray periodDaysToJson() {
+    public JSONArray periodDaysToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (PeriodDay t : periodDays) {

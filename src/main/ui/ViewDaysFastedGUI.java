@@ -19,7 +19,6 @@ public class ViewDaysFastedGUI {
     public ViewDaysFastedGUI(PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
         this.periodTracker = periodTracker;
-//        viewDaysFastedPage();
         backButtonListen();
     }
 
@@ -35,7 +34,6 @@ public class ViewDaysFastedGUI {
         panelBuilder.buildPanelLabel(titleLabel, 20, 180, 100, 200, 30);
         // PROGRAM TITLE:
         panelBuilder.buildPanelLabel(programTitleJLabel, 32, 40, 10, 500, 60);
-
         //NUMBER OF DAYS FASTED TITLE:
         updatePeriodDays();
         panelBuilder.buildPanelLabel(daysFastedLabel, 20, 80, 200, 500, 60);
