@@ -31,6 +31,7 @@ public class JsonReaderTest extends JsonTest {
         JsonReader reader = new JsonReader("./data/testWriterEmptyPeriodTracker.json");
         try {
             PeriodTracker pt = reader.read();
+            assertEquals("My Period Tracker",pt.getName());
             assertEquals(0, pt.numDays());
         } catch (IOException e) {
             fail("Couldn't read from file");

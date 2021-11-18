@@ -43,11 +43,11 @@ public class PeriodTracker implements Writable {
 
     }
 
-//    // MODIFIES: this
-//    // EFFECTS: adds day to this PeriodTracker
-//    public void addDay(PeriodDay day) {
-//        periodDays.add(day);
-//    }
+    // MODIFIES: this
+    // EFFECTS: adds day to this PeriodTracker
+    public void addDay(PeriodDay day) {
+        periodDays.add(day);
+    }
 
 
     //EFFECTS: returns the number of days fasted so far
