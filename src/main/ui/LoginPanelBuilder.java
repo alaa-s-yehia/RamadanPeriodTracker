@@ -13,7 +13,7 @@ public class LoginPanelBuilder {
     private final Font infoFont;
     private final Font titleFont;
 
-//    /**
+    //    /**
 //     * Sets the panel of this builder class
 //     *
 //     * @param panel the panel that is used throughout this builder class
@@ -25,7 +25,7 @@ public class LoginPanelBuilder {
         infoFont = new Font(Font.MONOSPACED, Font.PLAIN, 14);
     }
 
-//
+    //
 //    /**
 //     * @return the font used in this program
 //     */
@@ -44,7 +44,7 @@ public class LoginPanelBuilder {
 //    }
 
 
-//    /**
+    //    /**
 //     * Builds the JLabel of the panel
 //     *
 //     * @param justLabel represents the title of the panel
@@ -58,6 +58,12 @@ public class LoginPanelBuilder {
         justLabel.setFont(new Font(Font.MONOSPACED, Font.TYPE1_FONT, size));
         justLabel.setBounds(x, y, width, height);
         this.panel.add(justLabel);
+    }
+
+    public void buildPanelList(JList justListLabel, int size, int x, int y, int width, int height) {
+        justListLabel.setFont(new Font(Font.MONOSPACED, Font.TYPE1_FONT, size));
+        justListLabel.setBounds(x, y, width, height);
+        this.panel.add(justListLabel);
     }
 
     public JScrollPane buildMessagePreview(JScrollPane messagePreview) {
@@ -75,7 +81,7 @@ public class LoginPanelBuilder {
     }
 
 
-//    /**
+    //    /**
 //     * Builds a component that is added to the panel
 //     *
 //     * @param component represents the component that is added to the panel
@@ -109,7 +115,14 @@ public class LoginPanelBuilder {
         return justList;
     }
 
-//    /**
+    public JTextField buildTextField(int theXCoordinate, int theYCoordinate) {
+        JTextField field = new JTextField();
+        field.setBounds(theXCoordinate, theYCoordinate, 120, 30);
+        field.setFont(infoFont);
+        return field;
+    }
+
+    //    /**
 //     * Builds a list of buttons with a set x coordinate, width and height, using
 //     * the input parameters.
 //     *
@@ -144,10 +157,7 @@ public class LoginPanelBuilder {
     }
 
 
-
-
-
-//    /**
+    //    /**
 //     * Builds a button that is added to the panel
 //     *
 //     * @param button represents the component that is added to the panel

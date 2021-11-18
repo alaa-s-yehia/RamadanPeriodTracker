@@ -3,6 +3,8 @@ package ui;
 import model.PeriodDay;
 import model.PeriodTracker;
 
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.*;
 import java.util.List;
 
@@ -15,7 +17,7 @@ public class MonthGUI {
     private final PanelHelper panelHelper = new PanelHelper();
     private final JLabel titleLabel = new JLabel("Period Log");
     private final JLabel programTitleJLabel = new JLabel("Ramadan Period Tracker");
-    private final JList periodUserInput = new JList();
+    private JLabel previousPeriodLabel = new JLabel();
     private final JPanel monthPanel = new JPanel();
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(monthPanel);
     private final JButton backButton = new JButton("back");
@@ -23,7 +25,7 @@ public class MonthGUI {
 
     //trackerPanel elements
     private JList<String> periodDayJList;
-    private final DefaultListModel<PeriodDay> trackerListModel = new DefaultListModel<PeriodDay>();
+    private final DefaultListModel<String> trackerListModel = new DefaultListModel<>();
     private PeriodDay currTrackerDay;
 
 
@@ -35,7 +37,9 @@ public class MonthGUI {
     }
 
     public void updatePeriod() {
-        this.periodDayJList.getAccessibleContext("Your past Periods" + periodTracker.getPeriod());
+        this.previousPeriodLabel.setText("past period" + periodTracker.getPeriod());
+       // trackerListModel.addElement(this.previousPeriodLabel.setText("previous periods" + periodTracker.getPeriod());
+        // this.previousPeriodLabel. (periodTracker.getPeriod());
 
     }
 
@@ -45,21 +49,27 @@ public class MonthGUI {
         panelBuilder.buildPanelLabel(titleLabel, 20, 180, 100, 200, 30);
         // PROGRAM TITLE:
         panelBuilder.buildPanelLabel(programTitleJLabel, 32, 40, 10, 500, 60);
-        previousPeriodTracker();
-
         panelBuilder.buildButton(backButton, 10, 410, 80, 25);
+//        JScrollPane periodLog = new JScrollPane(previousPeriodTracker());
+//        periodLog.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//        periodLog.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        updatePeriod();
+        panelBuilder.buildPanelLabel(previousPeriodLabel,10,80, 200, 500, 60);
+
+//        monthPanel.setVisible(true);
         return monthPanel;
 
     }
 
 //    //  EFFECTS: prints all the days fasted in periodTracker to the console
-//    private void printPreviousPeriod() {
-//        List<PeriodDay> days = periodTracker.getPeriod();
-//        for (PeriodDay p : days) {
-//            this.periodUserInputLabel.setText("Your past Periods" + p);
-//        }
-//
-//    }
+    public JPanel printPreviousPeriod() {
+        List<PeriodDay> days = periodTracker.getPeriod();
+        for (PeriodDay p : days) {
+            this.previousPeriodLabel.setText("Your past Periods" + p);
+        }
+        return monthPanel;
+
+    }
 
     //  EFFECTS: prints all the days fasted in periodTracker to the console
     private JTextArea previousPeriodTracker() {
@@ -70,7 +80,9 @@ public class MonthGUI {
             s += p.toString() + ("\n");
         }
         JTextArea textArea = new JTextArea(s);
+        textArea.setLineWrap(true);
         textArea.setEditable(false);
+        textArea.setVisible(true);
         return textArea;
 
     }

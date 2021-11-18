@@ -20,23 +20,23 @@ public class LoadSystem {
     private JsonWriter jsonWriter;
 
 
-    public LoadSystem() {
-        periodTracker = new PeriodTracker("My Tracker");
-        jsonWriter = new JsonWriter(PERIOD_TRACK);
-        jsonReader = new JsonReader(PERIOD_TRACK);
-    }
-
-    // MODIFIES: this
-    // EFFECTS: loads periodTracker from file
-    public void loadExistingFile() {
-        try {
-            periodTracker = jsonReader.read();
-            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
-        } catch (IOException e) {
-            System.out.println("Unable to read from file: " + PERIOD_TRACK);
-        }
-
-    }
+//    public LoadSystem() {
+//        periodTracker = new PeriodTracker("My Tracker");
+//        jsonWriter = new JsonWriter(PERIOD_TRACK);
+//        jsonReader = new JsonReader(PERIOD_TRACK);
+//    }
+//
+//    // MODIFIES: this
+//    // EFFECTS: loads periodTracker from file
+//    public void loadExistingFile() {
+//        try {
+//            periodTracker = jsonReader.read();
+//            System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
+//        } catch (IOException e) {
+//            System.out.println("Unable to read from file: " + PERIOD_TRACK);
+//        }
+//
+//    }
 
 
 }

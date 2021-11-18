@@ -15,6 +15,7 @@ public class OpeningGui extends JFrame {
     private final JLabel photo = new JLabel();
     private final JButton addPeriodDayButton = new JButton("Add Period Day");
     private final JButton viewDaysFastedButton = new JButton("View Days Fasted ");
+    private final JButton previousPeriodButton = new JButton("Previous Period ");
     private final JButton monthButton = new JButton("View Period Logs ");
     private final AddPeriodDayGUI addPeriodGUI;
     private final ViewDaysFastedGUI viewDaysGUI;
@@ -38,6 +39,7 @@ public class OpeningGui extends JFrame {
         monthButtonListener();
         loadButtonListen();
         saveButtonListen();
+        //previousPeriodButtonListener();
 
 
     }
@@ -56,6 +58,7 @@ public class OpeningGui extends JFrame {
         panelBuilder.buildButton(saveButton, 190, 350, 100, 25);
         panelBuilder.buildButton(addPeriodDayButton, 130, 275, 240, 25);
         panelBuilder.buildButton(viewDaysFastedButton, 130, 300, 240, 25);
+     //   panelBuilder.buildButton(previousPeriodButton, 130, 100, 240, 25);
         panelBuilder.buildButton(monthButton, 130, 250, 240, 25);
         panelBuilder.buildPanelLabel(photo, 200, 200, 5, 500, 300);
 
@@ -66,18 +69,20 @@ public class OpeningGui extends JFrame {
 
     private void loadButtonListen() {
         loadButton.addActionListener(e -> {
-            panelStack.getMainFrame().dispose();
-            loadSystem.loadExistingFile();
-            new MainGUI();
+            panelStack.getMainFrame();
+           // panelStack.getMainFrame().dispose();
+            saveSystem.loadExistingFile();
+           // new MainGUI();
         });
     }
 
 
     private void saveButtonListen() {
         saveButton.addActionListener(e -> {
-            panelStack.getMainFrame().dispose();
+          //  panelStack.getMainFrame().dispose();
+            panelStack.getMainFrame();
             saveSystem.saveFile();
-            new MainGUI();
+          //  new MainGUI();
         });
     }
 
@@ -93,6 +98,11 @@ public class OpeningGui extends JFrame {
         viewDaysFastedButton.addActionListener(e -> this.panelStack.loadPanel(this.viewDaysGUI.viewDaysFastedPage()));
     }
 
+
+//    private void previousPeriodButtonListener() {
+//        viewDaysFastedButton.addActionListener(e -> this.panelStack.loadPanel(this.monthGUI.printPreviousPeriod()));
+//    }
+//
 
 }
 
