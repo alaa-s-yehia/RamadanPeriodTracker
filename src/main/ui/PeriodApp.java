@@ -101,8 +101,8 @@ public class PeriodApp {
         input.useDelimiter("\n");
     }
 
- //    MODIFIES: this
- //    EFFECTS: loads periodTracker from file
+    //    MODIFIES: this
+    //    EFFECTS: loads periodTracker from file
     public void loadExistingFile() {
         try {
             periodTracker = jsonReader.read();
@@ -119,7 +119,7 @@ public class PeriodApp {
             jsonWriter.open();
             jsonWriter.write(periodTracker);
             jsonWriter.close();
-           System.out.println("saved" + periodTracker.getDaysLeftToFast() + "to" + PERIOD_TRACK);
+            System.out.println("saved" + periodTracker.getDaysLeftToFast() + "to" + PERIOD_TRACK);
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 

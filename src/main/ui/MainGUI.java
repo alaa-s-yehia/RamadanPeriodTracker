@@ -24,9 +24,9 @@ public class MainGUI {
     private PeriodDay periodDay = new PeriodDay();
     private ViewDaysFastedGUI viewDaysFastedGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
     private AddPeriodDayGUI addPeriodDayGUI = new AddPeriodDayGUI(addPeriodDaySystem, periodTracker, panelStack);
-    private MonthGUI monthGUI = new MonthGUI(periodTracker,panelStack,periodDay,loadSystem);
+    private MonthGUI monthGUI = new MonthGUI(periodTracker, panelStack, periodDay, loadSystem);
     private OpeningGui openingGui = new OpeningGui(saveSystem, loadSystem, addPeriodDayGUI, viewDaysFastedGUI,
-            monthGUI,panelStack
+            monthGUI, panelStack
     );
     private JPanel currentJPanel = new JPanel();
 

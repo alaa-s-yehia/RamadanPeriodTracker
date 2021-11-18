@@ -76,10 +76,6 @@ public class PeriodTracker implements Writable {
     }
 
 
-
-
-
-
     @Override
     public JSONObject toJson() {
         JSONObject json = new JSONObject();

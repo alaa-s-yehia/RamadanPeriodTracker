@@ -58,7 +58,7 @@ public class OpeningGui extends JFrame {
         panelBuilder.buildButton(saveButton, 190, 350, 100, 25);
         panelBuilder.buildButton(addPeriodDayButton, 130, 275, 240, 25);
         panelBuilder.buildButton(viewDaysFastedButton, 130, 300, 240, 25);
-     //   panelBuilder.buildButton(previousPeriodButton, 130, 100, 240, 25);
+        //   panelBuilder.buildButton(previousPeriodButton, 130, 100, 240, 25);
         panelBuilder.buildButton(monthButton, 130, 250, 240, 25);
         panelBuilder.buildPanelLabel(photo, 200, 200, 5, 500, 300);
 
@@ -70,19 +70,19 @@ public class OpeningGui extends JFrame {
     private void loadButtonListen() {
         loadButton.addActionListener(e -> {
             panelStack.getMainFrame();
-           // panelStack.getMainFrame().dispose();
+            // panelStack.getMainFrame().dispose();
             saveSystem.loadExistingFile();
-           // new MainGUI();
+            // new MainGUI();
         });
     }
 
 
     private void saveButtonListen() {
         saveButton.addActionListener(e -> {
-          //  panelStack.getMainFrame().dispose();
+            //  panelStack.getMainFrame().dispose();
             panelStack.getMainFrame();
             saveSystem.saveFile();
-          //  new MainGUI();
+            //  new MainGUI();
         });
     }
 

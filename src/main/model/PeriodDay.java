@@ -21,7 +21,7 @@ public class PeriodDay implements Writable {
     }
 
     // empty constructor
-    public PeriodDay(){
+    public PeriodDay() {
 
     }
 

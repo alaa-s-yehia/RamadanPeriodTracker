@@ -38,7 +38,7 @@ public class MonthGUI {
 
     public void updatePeriod() {
         this.previousPeriodLabel.setText("past period" + periodTracker.getPeriod());
-       // trackerListModel.addElement(this.previousPeriodLabel.setText("previous periods" + periodTracker.getPeriod());
+        // trackerListModel.addElement(this.previousPeriodLabel.setText("previous periods" + periodTracker.getPeriod());
         // this.previousPeriodLabel. (periodTracker.getPeriod());
 
     }
@@ -54,14 +54,14 @@ public class MonthGUI {
 //        periodLog.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 //        periodLog.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
         updatePeriod();
-        panelBuilder.buildPanelLabel(previousPeriodLabel,10,80, 200, 500, 60);
+        panelBuilder.buildPanelLabel(previousPeriodLabel, 10, 80, 200, 500, 60);
 
 //        monthPanel.setVisible(true);
         return monthPanel;
 
     }
 
-//    //  EFFECTS: prints all the days fasted in periodTracker to the console
+    //    //  EFFECTS: prints all the days fasted in periodTracker to the console
     public JPanel printPreviousPeriod() {
         List<PeriodDay> days = periodTracker.getPeriod();
         for (PeriodDay p : days) {
