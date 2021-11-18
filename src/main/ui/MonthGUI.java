@@ -14,7 +14,7 @@ public class MonthGUI {
     private final PeriodTracker periodTracker;
     private PeriodDay periodDay;
     private final PanelStack panelStack;
-    private final PanelHelper panelHelper = new PanelHelper();
+    // final PanelHelper panelHelper = new PanelHelper();
     private final JLabel titleLabel = new JLabel("Period Log");
     private final JLabel programTitleJLabel = new JLabel("Ramadan Period Tracker");
     private JLabel previousPeriodLabel = new JLabel();
