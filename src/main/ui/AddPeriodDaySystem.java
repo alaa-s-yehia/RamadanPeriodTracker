@@ -37,6 +37,7 @@ public class AddPeriodDaySystem {
     public void setMood(String ans) {
         period.setMood(ans);
     }
+
     //EFFECTS: Adds day to period tracker
     public void addToTracker(PeriodTracker periodTracker) {
         periodTracker.addPeriodDay(period);

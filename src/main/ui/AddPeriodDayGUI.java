@@ -28,7 +28,7 @@ public class AddPeriodDayGUI implements ActionListener {
     private final JButton backButton = new JButton("back");
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(loginPanel);
 
-//EFFECTS: creates a panel that prompts the user to input data related to their period
+    //EFFECTS: creates a panel that prompts the user to input data related to their period
     public AddPeriodDayGUI(AddPeriodDaySystem addPeriodDay, PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
         this.addPeriodDay = addPeriodDay;
@@ -37,7 +37,7 @@ public class AddPeriodDayGUI implements ActionListener {
         confirmButton.addActionListener(this);
     }
 
-//EFFECTS: builds the page where the user inputs data related to their period
+    //EFFECTS: builds the page where the user inputs data related to their period
     public JPanel addPeriodDayPage() {
         // PANEL:
         panelBuilder.buildMainPanel();

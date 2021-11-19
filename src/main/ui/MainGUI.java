@@ -25,7 +25,7 @@ public class MainGUI {
     );
     private JPanel currentJPanel = new JPanel();
 
-//EFFECTS: creates the frame of the period Tracker
+    //EFFECTS: creates the frame of the period Tracker
     public MainGUI() {
         input = new Scanner(System.in);
         currentJPanel.setSize(500, 500);
@@ -48,7 +48,7 @@ public class MainGUI {
         });
     }
 
-//EFFECTS: runs the application
+    //EFFECTS: runs the application
     public void run() {
         panelStack.loadPanel(openingGui.welcomePage());
     }
