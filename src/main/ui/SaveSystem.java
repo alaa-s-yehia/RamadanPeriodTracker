@@ -5,13 +5,16 @@ import model.PeriodTracker;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 
-
+//Represents the save and load system
 public class SaveSystem {
     protected PeriodTracker periodTracker;
     private static final String PERIOD_TRACK = "./data/periodTracker.json";
+    private JLabel previousPeriodLogLabel = new JLabel();
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
@@ -29,7 +32,8 @@ public class SaveSystem {
             jsonWriter.open();
             jsonWriter.write(periodTracker);
             jsonWriter.close();
-            System.out.println("saved" + periodTracker.getPeriod() + "to" + PERIOD_TRACK);
+            //  System.out.println("saved" + periodTracker.getPeriod() + "to" + PERIOD_TRACK);
+            periodTracker.getPeriod();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 
@@ -47,4 +51,6 @@ public class SaveSystem {
         }
 
     }
+
+
 }

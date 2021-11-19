@@ -6,6 +6,8 @@ import model.PeriodTracker;
 import javax.swing.*;
 import java.awt.event.ActionListener;
 
+// Represent the number of days the user needs to make up their fast
+
 public class ViewDaysFastedGUI {
     private final PanelStack panelStack;
     private final PeriodTracker periodTracker;
@@ -16,17 +18,20 @@ public class ViewDaysFastedGUI {
     private final JButton backButton = new JButton("back");
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(fastPanel);
 
+    //EFFECTS: creates a panel that informs the user how many days they need to make up their fast
     public ViewDaysFastedGUI(PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
         this.periodTracker = periodTracker;
         backButtonListen();
     }
 
+    //EFFECTS: updates the number of days the user needs to make up their fast
     public void updatePeriodDays() {
         this.daysFastedLabel.setText("You have " + periodTracker.getDaysLeftToFast()
                 + " days left to fast.");
     }
 
+    //EFFECTS: builds the view days fasted panel
     public JPanel viewDaysFastedPage() {
         // PANEL:
         panelBuilder.buildMainPanel();
@@ -43,6 +48,7 @@ public class ViewDaysFastedGUI {
         return fastPanel;
     }
 
+    //EFFECTS: builds the back button that takes the user back to the opening Page
     private void backButtonListen() {
         backButton.addActionListener(e -> {
             panelStack.pop();

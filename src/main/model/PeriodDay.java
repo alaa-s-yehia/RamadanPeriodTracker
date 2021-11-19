@@ -59,8 +59,8 @@ public class PeriodDay implements Writable {
     public void setMood(String mood) {
         this.mood = mood;
     }
-    //  EFFECTS: returns string representation of the days fasted
 
+    //  EFFECTS: returns string representation of the period input
     public String toString() {
         return period + "!" + fast + "!" + mood + "!";
 
