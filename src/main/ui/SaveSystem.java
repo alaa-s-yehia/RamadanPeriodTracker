@@ -33,7 +33,7 @@ public class SaveSystem {
             jsonWriter.write(periodTracker);
             jsonWriter.close();
             //  System.out.println("saved" + periodTracker.getPeriod() + "to" + PERIOD_TRACK);
-            periodTracker.getPeriod();
+//            periodTracker.getPeriod();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 
@@ -42,13 +42,15 @@ public class SaveSystem {
 
     // MODIFIES: this
     // EFFECTS: loads periodTracker from file
-    public void loadExistingFile() {
+    public PeriodTracker loadExistingFile() {
         try {
+            JsonReader jsonReader = new JsonReader(PERIOD_TRACK);
             periodTracker = jsonReader.read();
             System.out.println("Loaded " + periodTracker.getName() + " from " + PERIOD_TRACK);
         } catch (IOException e) {
             System.out.println("Unable to read from file: " + PERIOD_TRACK);
         }
+        return periodTracker;
 
     }
 

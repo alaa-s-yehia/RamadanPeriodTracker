@@ -8,9 +8,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //Represents the Add Period Day Panel
-public class AddPeriodDayGUI implements ActionListener {
+public class AddPeriodDayGUI {
     private final PanelStack panelStack;
-    private final AddPeriodDaySystem addPeriodDay;
+    //    private final AddPeriodDaySystem addPeriodDay;
     private final PeriodTracker periodTracker;
     private final JPanel loginPanel = new JPanel();
     private final JLabel titleLabel = new JLabel("Ramadan Tracker");
@@ -29,12 +29,13 @@ public class AddPeriodDayGUI implements ActionListener {
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(loginPanel);
 
     //EFFECTS: creates a panel that prompts the user to input data related to their period
-    public AddPeriodDayGUI(AddPeriodDaySystem addPeriodDay, PeriodTracker periodTracker, PanelStack panelStack) {
+    public AddPeriodDayGUI(PeriodTracker periodTracker, PanelStack panelStack) {
         this.panelStack = panelStack;
-        this.addPeriodDay = addPeriodDay;
+//        this.addPeriodDay = addPeriodDay;
         this.periodTracker = periodTracker;
         backButtonListen();
-        confirmButton.addActionListener(this);
+        confirmButtonListen();
+//        confirmButton.addActionListener(this);
     }
 
     //EFFECTS: builds the page where the user inputs data related to their period
@@ -65,20 +66,22 @@ public class AddPeriodDayGUI implements ActionListener {
     //EFFECTS: the listener for the back button, it takes the user back to the opening screen
     private void backButtonListen() {
         backButton.addActionListener(e -> {
-            addPeriodDay.addToTracker(periodTracker);
+//            addPeriodDay.addToTracker(periodTracker);
             panelStack.pop();
             JPanel panel = (JPanel) panelStack.pop();
             panelStack.loadPanel(panel);
         });
     }
 
-    //EFFECTS: processes the item selected by the user from the drop-down menu
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        addPeriodDay.setPeriod((String) typeComboBox.getSelectedItem());
-        addPeriodDay.setFast((String) typeComboBox2.getSelectedItem());
-        addPeriodDay.setMood((String) typeComboBox3.getSelectedItem());
-
+    private void confirmButtonListen() {
+        confirmButton.addActionListener(e -> {
+            AddPeriodDaySystem addPeriodDay = new AddPeriodDaySystem();
+            addPeriodDay.setPeriod((String) typeComboBox.getSelectedItem());
+            addPeriodDay.setFast((String) typeComboBox2.getSelectedItem());
+            addPeriodDay.setMood((String) typeComboBox3.getSelectedItem());
+            addPeriodDay.addToTracker(periodTracker);
+        });
     }
+
 }
 

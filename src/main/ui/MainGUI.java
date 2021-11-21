@@ -14,15 +14,16 @@ public class MainGUI {
     private JButton exitButton = new JButton("exit");
     private PanelStack panelStack = new PanelStack(mainFrame);
     private SaveSystem saveSystem = new SaveSystem();
-    private AddPeriodDaySystem addPeriodDaySystem = new AddPeriodDaySystem();
+//    private AddPeriodDaySystem addPeriodDaySystem = new AddPeriodDaySystem();
     private PeriodTracker periodTracker = new PeriodTracker("My Tracker");
-    private PeriodDay periodDay = new PeriodDay();
-    private ViewDaysFastedGUI viewDaysFastedGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
-    private AddPeriodDayGUI addPeriodDayGUI = new AddPeriodDayGUI(addPeriodDaySystem, periodTracker, panelStack);
-    private MonthGUI monthGUI = new MonthGUI(periodTracker, panelStack, periodDay);
-    private OpeningGui openingGui = new OpeningGui(saveSystem, addPeriodDayGUI, viewDaysFastedGUI,
-            monthGUI, panelStack
-    );
+//    private PeriodDay periodDay = new PeriodDay();
+//    private ViewDaysFastedGUI viewDaysFastedGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
+//    //private PreviousPeriodGUI logPeriodGUI = new PreviousPeriodGUI(periodTracker, panelStack);
+//    private AddPeriodDayGUI addPeriodDayGUI = new AddPeriodDayGUI(periodTracker, panelStack);
+//    private MonthGUI monthGUI = new MonthGUI(periodTracker, panelStack, periodDay);
+//    private OpeningGui openingGui = new OpeningGui(saveSystem, addPeriodDayGUI, viewDaysFastedGUI,
+//            monthGUI,panelStack);
+    private OpeningGui openingGui = new OpeningGui(saveSystem, panelStack);
     private JPanel currentJPanel = new JPanel();
 
     //EFFECTS: creates the frame of the period Tracker

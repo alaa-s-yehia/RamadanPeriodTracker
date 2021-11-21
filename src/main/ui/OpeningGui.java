@@ -1,6 +1,9 @@
 package ui;
 
 
+import model.PeriodDay;
+import model.PeriodTracker;
+
 import javax.swing.*;
 import javax.swing.ImageIcon;
 
@@ -18,30 +21,52 @@ public class OpeningGui extends JFrame {
     private final JButton viewDaysFastedButton = new JButton("View Days Fasted ");
     private final JButton previousPeriodButton = new JButton("Previous Period ");
     private final JButton monthButton = new JButton("View Period Logs ");
-    private final AddPeriodDayGUI addPeriodGUI;
-    private final ViewDaysFastedGUI viewDaysGUI;
-    private final MonthGUI monthGUI;
+    private AddPeriodDayGUI addPeriodGUI;
+    private ViewDaysFastedGUI viewDaysGUI;
+    private MonthGUI monthGUI;
+    private PeriodTracker periodTracker = new PeriodTracker("My Tracker");
+    //private final PreviousPeriodGUI logPeriodGUI;
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(welcomePanel);
 
-    //EFFECTS: displays the various buttons on the welcome page
-    public OpeningGui(SaveSystem saveSystem,
-                      AddPeriodDayGUI addPeriodDayGUI, ViewDaysFastedGUI viewDaysFastedGUI,
-                      MonthGUI monthGUI,
-                      PanelStack panelStack) {
+
+    public OpeningGui(SaveSystem saveSystem, PanelStack panelStack) {
         this.panelStack = panelStack;
-        this.addPeriodGUI = addPeriodDayGUI;
-        this.viewDaysGUI = viewDaysFastedGUI;
-        this.monthGUI = monthGUI;
         this.saveSystem = saveSystem;
+        instantiateElements(periodTracker);
         imageAdder();
+        loadButtonListen();
+        saveButtonListen();
+    }
+
+    public void instantiateElements(PeriodTracker periodTracker) {
+        this.viewDaysGUI = new ViewDaysFastedGUI(periodTracker, panelStack);
+        this.addPeriodGUI = new AddPeriodDayGUI(periodTracker, panelStack);
+        this.monthGUI = new MonthGUI(periodTracker, panelStack, new PeriodDay());
         addPeriodDayButtonListener();
         viewDaysFastedButtonListener();
         monthButtonListener();
-        loadButtonListen();
-        saveButtonListen();
-
-
     }
+
+//    //EFFECTS: displays the various buttons on the welcome page
+//    public OpeningGui(SaveSystem saveSystem,
+//                      AddPeriodDayGUI addPeriodDayGUI, ViewDaysFastedGUI viewDaysFastedGUI,
+//                      MonthGUI monthGUI, PanelStack panelStack) {
+//        this.panelStack = panelStack;
+//        this.addPeriodGUI = addPeriodDayGUI;
+//        this.viewDaysGUI = viewDaysFastedGUI;
+//        // this.logPeriodGUI = logPeriodGUI;
+//        this.monthGUI = monthGUI;
+//        this.saveSystem = saveSystem;
+//        imageAdder();
+//        addPeriodDayButtonListener();
+//        viewDaysFastedButtonListener();
+//        //previousPeriodButtonListener();
+//        monthButtonListener();
+//        loadButtonListen();
+//        saveButtonListen();
+//
+//
+//    }
 
     ///EFFECTS: adds an image to the main page
     public void imageAdder() {
@@ -59,6 +84,7 @@ public class OpeningGui extends JFrame {
         panelBuilder.buildButton(saveButton, 190, 350, 100, 25);
         panelBuilder.buildButton(addPeriodDayButton, 130, 275, 240, 25);
         panelBuilder.buildButton(viewDaysFastedButton, 130, 300, 240, 25);
+        //   panelBuilder.buildButton(previousPeriodButton, 130, 200, 240, 25);
         panelBuilder.buildButton(monthButton, 130, 250, 240, 25);
         panelBuilder.buildPanelLabel(photo, 200, 200, 5, 500, 300);
 
@@ -70,7 +96,7 @@ public class OpeningGui extends JFrame {
     private void loadButtonListen() {
         loadButton.addActionListener(e -> {
             panelStack.getMainFrame();
-            saveSystem.loadExistingFile();
+            instantiateElements(saveSystem.loadExistingFile());
         });
     }
 
@@ -96,6 +122,11 @@ public class OpeningGui extends JFrame {
     private void viewDaysFastedButtonListener() {
         viewDaysFastedButton.addActionListener(e -> this.panelStack.loadPanel(this.viewDaysGUI.viewDaysFastedPage()));
     }
+
+//    //EFFECTS: Takes the user to the panel that tells them how many days they need to make up their fast
+//    private void previousPeriodButtonListener() {
+//    previousPeriodButton.addActionListener(e -> this.panelStack.loadPanel(this.logPeriodGUI.previousPeriodPage()));
+//    }
 
 
 }
