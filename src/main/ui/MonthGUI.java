@@ -47,6 +47,7 @@ public class MonthGUI {
 
     }
 
+    //EFFECTS: Prints the user's data by arranging it in the number of fays
     private String formatPeriod(String period, int index) {
         String[] tokens = period.split("!");
         return "Day " + (index + 1) + " \n period: " + tokens[0] + "\n fasted: " + tokens[1] + "\n mood: " + tokens[2];
@@ -63,6 +64,8 @@ public class MonthGUI {
         return buildMainPane(new JScrollPane(periodJList));
     }
 
+
+    //EFFECTS: Builds and formats the JScorll Pane
     public JScrollPane buildMainPane(JScrollPane scrollPane) {
         scrollPane.setBounds(120, 80, 300, 340);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
@@ -72,7 +75,7 @@ public class MonthGUI {
         return scrollPane;
     }
 
-    //EFFECTS: Builds a Jlist
+    //EFFECTS: Builds a JList with the input list model and formats it
     private JList<String> buildJList(DefaultListModel<String> list) {
         JList<String> justList = new JList<>(list);
         justList.setBounds(120, 80, 220, 300);

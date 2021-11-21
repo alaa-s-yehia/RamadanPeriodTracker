@@ -32,8 +32,6 @@ public class SaveSystem {
             jsonWriter.open();
             jsonWriter.write(periodTracker);
             jsonWriter.close();
-            //  System.out.println("saved" + periodTracker.getPeriod() + "to" + PERIOD_TRACK);
-//            periodTracker.getPeriod();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to write to file: " + PERIOD_TRACK);
 
