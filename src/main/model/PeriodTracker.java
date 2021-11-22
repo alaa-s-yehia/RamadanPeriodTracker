@@ -4,6 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -40,6 +41,9 @@ public class PeriodTracker implements Writable {
         if (day.getFast()) {
             fast++;
         }
+  //      EventLog.getInstance().logEvent(new Event("Period Added"));
+
+
 
     }
 
