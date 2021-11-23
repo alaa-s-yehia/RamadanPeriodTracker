@@ -1,11 +1,15 @@
 package ui;
 
 
+import model.EventLog;
 import model.PeriodDay;
+import model.Event;
 import model.PeriodTracker;
 
 import javax.swing.*;
 import javax.swing.ImageIcon;
+import java.util.ArrayList;
+import java.util.Collection;
 
 
 //Represents the Welcome Panel
@@ -16,15 +20,19 @@ public class OpeningGui extends JFrame {
     private final JLabel welcomeJLabel = new JLabel("Ramadan Period Tracker");
     private final JButton loadButton = new JButton("Load");
     private final JButton saveButton = new JButton("Save");
+    private final JButton quitButton = new JButton("Quit");
     private final JLabel photo = new JLabel();
     private final JButton addPeriodDayButton = new JButton("Add Period Day");
     private final JButton viewDaysFastedButton = new JButton("View Days Fasted ");
     private final JButton previousPeriodButton = new JButton("Previous Period ");
     private final JButton monthButton = new JButton("View Period Logs ");
     private AddPeriodDayGUI addPeriodGUI;
+    private EventLog eventLog;
+  //  private Event events;
     private ViewDaysFastedGUI viewDaysGUI;
     private MonthGUI monthGUI;
     private PeriodTracker periodTracker = new PeriodTracker("My Tracker");
+    private PeriodDay periodDay = new PeriodDay();
     //private final PreviousPeriodGUI logPeriodGUI;
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(welcomePanel);
 
@@ -36,6 +44,7 @@ public class OpeningGui extends JFrame {
         imageAdder();
         loadButtonListen();
         saveButtonListen();
+        exitButtonListen();
     }
 
     public void instantiateElements(PeriodTracker periodTracker) {
@@ -47,26 +56,6 @@ public class OpeningGui extends JFrame {
         monthButtonListener();
     }
 
-//    //EFFECTS: displays the various buttons on the welcome page
-//    public OpeningGui(SaveSystem saveSystem,
-//                      AddPeriodDayGUI addPeriodDayGUI, ViewDaysFastedGUI viewDaysFastedGUI,
-//                      MonthGUI monthGUI, PanelStack panelStack) {
-//        this.panelStack = panelStack;
-//        this.addPeriodGUI = addPeriodDayGUI;
-//        this.viewDaysGUI = viewDaysFastedGUI;
-//        // this.logPeriodGUI = logPeriodGUI;
-//        this.monthGUI = monthGUI;
-//        this.saveSystem = saveSystem;
-//        imageAdder();
-//        addPeriodDayButtonListener();
-//        viewDaysFastedButtonListener();
-//        //previousPeriodButtonListener();
-//        monthButtonListener();
-//        loadButtonListen();
-//        saveButtonListen();
-//
-//
-//    }
 
     ///EFFECTS: adds an image to the main page
     public void imageAdder() {
@@ -81,6 +70,7 @@ public class OpeningGui extends JFrame {
         panelBuilder.buildMainPanel();
         panelBuilder.buildPanelLabel(welcomeJLabel, 32, 45, 10, 500, 60);
         panelBuilder.buildButton(loadButton, 190, 325, 100, 25);
+        panelBuilder.buildButton(quitButton, 190, 375, 100, 25);
         panelBuilder.buildButton(saveButton, 190, 350, 100, 25);
         panelBuilder.buildButton(addPeriodDayButton, 130, 275, 240, 25);
         panelBuilder.buildButton(viewDaysFastedButton, 130, 300, 240, 25);
@@ -97,6 +87,17 @@ public class OpeningGui extends JFrame {
         loadButton.addActionListener(e -> {
             panelStack.getMainFrame();
             instantiateElements(saveSystem.loadExistingFile());
+        });
+    }
+
+    //EFFECTS: Quits the application
+    private void exitButtonListen() {
+        quitButton.addActionListener(e -> {
+
+            for (Event l : EventLog.getInstance()) {
+                System.out.println(l);
+            }
+            System.exit(0);
         });
     }
 

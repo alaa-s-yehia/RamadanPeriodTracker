@@ -27,3 +27,8 @@ This project is of interest to me for many reasons :
 - As a user, I want to be able to input when I fasted a day
 - As a user, I want to be able to save the data inputted into my period tracker regarding whether I fasted or not 
 - As a user, I want to be able to reload when I had previously inputted data related to my fasting
+
+
+Phase 4: Task 2
+Tue Nov 23 14:27:30 PST 2021
+Period Day Added to Tracker
