@@ -37,11 +37,11 @@ public class PeriodTracker implements Writable {
             fastsLeftAfter++;
             periodDays.add(day);
         }
-
         if (day.getFast()) {
             fast++;
         }
-  //      EventLog.getInstance().logEvent(new Event("Period Added"));
+        EventLog.getInstance().logEvent(new Event("Period Day Added to Tracker"));
+
 
 
 
