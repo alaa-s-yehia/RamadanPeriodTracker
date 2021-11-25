@@ -14,14 +14,11 @@ import java.util.List;
 public class SaveSystem {
     protected PeriodTracker periodTracker;
     private static final String PERIOD_TRACK = "./data/periodTracker.json";
-    private JLabel previousPeriodLogLabel = new JLabel();
     private JsonWriter jsonWriter;
-    private JsonReader jsonReader;
 
     public SaveSystem() {
         periodTracker = new PeriodTracker("My Tracker");
         jsonWriter = new JsonWriter(PERIOD_TRACK);
-        jsonReader = new JsonReader(PERIOD_TRACK);
 
     }
 

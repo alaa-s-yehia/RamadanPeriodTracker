@@ -14,7 +14,6 @@ public class PeriodTracker implements Writable {
     protected List<PeriodDay> periodDays;
     protected int fast = 0; // Number of days fasted so far
     protected int period = 0; // Number of days user has been on their period
-    protected int numMonths = 30; // Number of days in a month
     int fastsLeftAfter = 0; // Number of days left to fast
     private String name;
 

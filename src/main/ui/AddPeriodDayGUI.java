@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 //Represents the Add Period Day Panel
 public class AddPeriodDayGUI {
     private final PanelStack panelStack;
-    //    private final AddPeriodDaySystem addPeriodDay;
     private final PeriodTracker periodTracker;
     private final JPanel loginPanel = new JPanel();
     private final JLabel titleLabel = new JLabel("Ramadan Tracker");

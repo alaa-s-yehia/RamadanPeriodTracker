@@ -14,7 +14,6 @@ public class MainGUI {
     private JButton exitButton = new JButton("exit");
     private PanelStack panelStack = new PanelStack(mainFrame);
     private SaveSystem saveSystem = new SaveSystem();
-    private PeriodTracker periodTracker = new PeriodTracker("My Tracker");
     private OpeningGui openingGui = new OpeningGui(saveSystem, panelStack);
     private JPanel currentJPanel = new JPanel();
 

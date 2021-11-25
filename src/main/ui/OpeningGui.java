@@ -24,16 +24,11 @@ public class OpeningGui extends JFrame {
     private final JLabel photo = new JLabel();
     private final JButton addPeriodDayButton = new JButton("Add Period Day");
     private final JButton viewDaysFastedButton = new JButton("View Days Fasted ");
-    private final JButton previousPeriodButton = new JButton("Previous Period ");
     private final JButton monthButton = new JButton("View Period Logs ");
     private AddPeriodDayGUI addPeriodGUI;
-    private EventLog eventLog;
-  //  private Event events;
     private ViewDaysFastedGUI viewDaysGUI;
     private MonthGUI monthGUI;
     private PeriodTracker periodTracker = new PeriodTracker("My Tracker");
-    private PeriodDay periodDay = new PeriodDay();
-    //private final PreviousPeriodGUI logPeriodGUI;
     private final LoginPanelBuilder panelBuilder = new LoginPanelBuilder(welcomePanel);
 
 

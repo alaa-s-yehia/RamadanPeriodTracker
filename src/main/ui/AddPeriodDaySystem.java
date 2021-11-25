@@ -12,10 +12,6 @@ import java.util.Scanner;
 public class AddPeriodDaySystem {
     protected PeriodDay period;
     protected int fast;
-    protected Scanner input;
-    private static final String PERIOD_TRACK = "./data/periodTracker.json";
-    private JsonReader jsonReader;
-    private JsonWriter jsonWriter;
 
     //EFFECTS: the mechanisms in regard to the AddPeriodDayGUI are created here
     public AddPeriodDaySystem() {
