@@ -34,8 +34,9 @@ Tue Nov 23 14:27:30 PST 2021
 Period Day Added to Tracker
 
 Phase 4: Task 3
-As my code is right now , I have split the GUI of every Panel into its own class , and the System for each GUI into its 
-own class. I believed this was a good decision on my part and made my code more readable. However, some methods 
-in my existing classes are arranged in a manner which I believe are not that clear as they are not in succession. I 
-would also divide my Save System in my ui package to have another class called Load System. This is to improve the 
-readability of my code, so you're able to identify where the methods for the loading function are. 
+- As my code is right now , I have split the GUI of every Panel into its own class , and the System for each GUI into its 
+own class. I believed this was a good decision on my part and made my code more readable.
+- Some methods in my existing classes are arranged in a manner which I believe are not that clear as they are not 
+in succession.
+- I would  divide my Save System in my ui package to have another class called Load System. 
+This is to improve the readability of my code, so you're able to identify where the methods for the loading function are. 
