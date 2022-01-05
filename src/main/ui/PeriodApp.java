@@ -14,7 +14,6 @@ import java.util.Scanner;
 public class PeriodApp {
     protected PeriodDay period;
     protected PeriodTracker periodTracker;
-    protected int fast;
     protected Scanner input;
     private static final String PERIOD_TRACK = "./data/periodTracker.json";
     private JsonReader jsonReader;

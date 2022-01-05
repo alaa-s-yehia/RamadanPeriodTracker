@@ -6,7 +6,7 @@ import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import java.util.Objects;
-import java.util.Scanner;
+
 
 //Represents the system that processes user input in the ADD PERIOD DAY GUI
 public class AddPeriodDaySystem {
