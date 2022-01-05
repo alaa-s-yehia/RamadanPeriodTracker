@@ -11,7 +11,6 @@ import java.util.Scanner;
 //Represents the system that processes user input in the ADD PERIOD DAY GUI
 public class AddPeriodDaySystem {
     protected PeriodDay period;
-    protected int fast;
 
     //EFFECTS: the mechanisms in regard to the AddPeriodDayGUI are created here
     public AddPeriodDaySystem() {
