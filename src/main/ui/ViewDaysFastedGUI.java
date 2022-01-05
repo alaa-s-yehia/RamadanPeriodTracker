@@ -1,10 +1,8 @@
 package ui;
 
-import model.PeriodDay;
 import model.PeriodTracker;
 
 import javax.swing.*;
-import java.awt.event.ActionListener;
 
 // Represent the number of days the user needs to make up their fast
 
